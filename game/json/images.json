@@ -1,0 +1,16 @@
+{
+    "Backgrounds": {
+        "path": "/images/backgrounds",
+        "images":{
+            "background1": "egg"
+        }
+    },
+    "Textures": {
+        "path": "/images/textures",
+        "images":{
+            "texture1": "egg"
+        }
+    }
+
+
+}

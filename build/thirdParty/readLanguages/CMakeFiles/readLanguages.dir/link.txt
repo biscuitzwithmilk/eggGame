@@ -1,0 +1,2 @@
+/usr/bin/ar qc libreadLanguages.a CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o
+/usr/bin/ranlib libreadLanguages.a

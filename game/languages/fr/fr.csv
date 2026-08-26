@@ -1,0 +1,20 @@
+//section1
+Key,Char_Name,Context,English,Français
+egg.dialogue1,Egg,testing,I'm happy!,Je suis trop content!
+theMan.dialogue1,Man,testing,Are you...though?,Mais l'es tu vraiment?
+egg.dialogue2,Egg,testing,I think so...,Je crois...
+theMan.dialogue2,Man,testing,So you're not sure?,Alors tu n'est pas sûr?
+egg.dialogue3,Egg,testing,I never am.,Je le suis jamais.
+//endsection1
+//section2
+Key,Char_Name,Context,English,Français
+egg.dialogue1,test,He's saying hi (this is a test),I'm Sad,Je suis triste
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),This is a test,This is a test
+//endsection2
+//section3
+Key,Char_Name,Context,English,Français
+egg.dialogue1,test,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+//endsection3

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libjsonutils.a CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o
+/usr/bin/ranlib libjsonutils.a

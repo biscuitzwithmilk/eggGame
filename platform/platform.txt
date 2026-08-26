@@ -1,0 +1,2 @@
+only use for code that is specific to platform (os)
+So it can then be swapped for each os

@@ -1,0 +1,11 @@
+{
+    "WindowSettings": {
+        "isFullScreen": true,
+        "maxFPS": 60,
+        "Vsync": true,
+        "windowSize":{
+            "Width": 1920,
+            "Height": 1080
+        }
+    }
+}

@@ -1,0 +1,20 @@
+//section1
+Key,Char_Name,Context,English,English
+egg.dialogue1,Egg,testing,I'm happy!,I'm happy!
+theMan.dialogue1,Man,testing,Are you...though?,<strong>Are</strong> you...<strong>though</strong>?
+egg.dialogue2,Egg,testing,I think so...,I think so...
+theMan.dialogue2,Man,testing,So you're not sure?,So you're <strong>not</strong> sure?
+egg.dialogue3,Egg,testing,I never am.,<slow><shakey>I never am.</shakey></slow>
+//endsection1
+//section2
+Key,Char_Name,Context,English,English
+egg.dialogue1,test,He's saying hi (this is a test),I'm Sad,I'm Sad
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),This is a test,This is a test
+//endsection2
+//section3
+Key,Char_Name,Context,English,English
+egg.dialogue1,test,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+//endsection3

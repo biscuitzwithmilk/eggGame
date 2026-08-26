@@ -1,0 +1,20 @@
+//section1
+Key,Char_Name,Context,English,Español
+egg.dialogue1,Egg,testing,I'm happy!,Estoy tan feliz!
+theMan.dialogue1,Man,testing,Are you...though?,Pero lo estas realmente?
+egg.dialogue2,Egg,testing,I think so...,Eso creo...
+theMan.dialogue2,Man,testing,So you're not sure?,Entonces no estas seguro?
+egg.dialogue3,Egg,testing,I never am.,Nunca lo estoy.
+//endsection1
+//section2
+Key,Char_Name,Context,English,Español
+egg.dialogue1,test,He's saying hi (this is a test),I'm Sad,Estoy triste
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),This is a test,This is a test
+//endsection2
+//section3
+Key,Char_Name,Context,English,Español
+egg.dialogue1,test,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+egg.dialogue1,Egg,He's saying hi (this is a test),Hi,Hi
+//endsection3

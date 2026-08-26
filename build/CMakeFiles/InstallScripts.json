@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/joebiscuitz/Documents/eggGame/build/cmake_install.cmake",
+		"/home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils/cmake_install.cmake",
+		"/home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages/cmake_install.cmake",
+		"/home/joebiscuitz/Documents/eggGame/build/thirdParty/csvutils/cmake_install.cmake",
+		"/home/joebiscuitz/Documents/eggGame/build/game/scripts/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
