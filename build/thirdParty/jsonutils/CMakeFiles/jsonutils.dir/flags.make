@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/include
+CXX_INCLUDES = -I/home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/include
 
 CXX_FLAGS = 
 

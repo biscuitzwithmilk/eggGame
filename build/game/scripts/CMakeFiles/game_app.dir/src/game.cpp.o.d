@@ -1,5 +1,5 @@
 game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o: \
- /home/joebiscuitz/Documents/eggGame/game/scripts/src/game.cpp \
+ /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/game.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/16/fstream \
  /usr/include/c++/16/bits/requires_hosted.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -146,14 +146,14 @@ game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o: \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/16/bits/fstream.tcc /usr/include/c++/16/iostream \
- /home/joebiscuitz/Documents/eggGame/game/scripts/include/windowManager.h \
- /home/joebiscuitz/Documents/eggGame/thirdParty/csvutils/include/csvutils.h \
+ /home/joebiscuitz/Documents/Github/eggGame/game/scripts/include/windowManager.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/csvutils/include/csvutils.h \
  /usr/include/c++/16/vector /usr/include/c++/16/bits/stl_uninitialized.h \
  /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
  /usr/include/c++/16/bits/vector.tcc \
- /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/include/readLanguages.h \
- /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/include/jsonutils.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/include/readLanguages.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/include/jsonutils.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/16/algorithm \
  /usr/include/c++/16/bits/stl_algo.h \
  /usr/include/c++/16/bits/algorithmfwd.h \
@@ -287,5 +287,5 @@ game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o: \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/16/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/joebiscuitz/Documents/eggGame/game/scripts/include/inputMap.h \
+ /home/joebiscuitz/Documents/Github/eggGame/game/scripts/include/inputMap.h \
  /usr/include/raylib.h

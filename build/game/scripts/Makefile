@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/eggGame
+CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/Github/eggGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/eggGame/build
+CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/Github/eggGame/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles /home/joebiscuitz/Documents/eggGame/build/game/scripts//CMakeFiles/progress.marks
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 0
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts//CMakeFiles/progress.marks
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/clean
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/preinstall
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/preinstall
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 game/scripts/CMakeFiles/game_app.dir/rule:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/CMakeFiles/game_app.dir/rule
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/CMakeFiles/game_app.dir/rule
 .PHONY : game/scripts/CMakeFiles/game_app.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ game_app: game/scripts/CMakeFiles/game_app.dir/rule
 
 # fast build rule for target.
 game_app/fast:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/build
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/build
 .PHONY : game_app/fast
 
 src/game.o: src/game.cpp.o
@@ -135,7 +135,7 @@ src/game.o: src/game.cpp.o
 
 # target to build an object file
 src/game.cpp.o:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o
 .PHONY : src/game.cpp.o
 
 src/game.i: src/game.cpp.i
@@ -143,7 +143,7 @@ src/game.i: src/game.cpp.i
 
 # target to preprocess a source file
 src/game.cpp.i:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/game.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/game.cpp.i
 .PHONY : src/game.cpp.i
 
 src/game.s: src/game.cpp.s
@@ -151,7 +151,7 @@ src/game.s: src/game.cpp.s
 
 # target to generate assembly for a file
 src/game.cpp.s:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/game.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/game.cpp.s
 .PHONY : src/game.cpp.s
 
 src/inputMap.o: src/inputMap.cpp.o
@@ -159,7 +159,7 @@ src/inputMap.o: src/inputMap.cpp.o
 
 # target to build an object file
 src/inputMap.cpp.o:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o
 .PHONY : src/inputMap.cpp.o
 
 src/inputMap.i: src/inputMap.cpp.i
@@ -167,7 +167,7 @@ src/inputMap.i: src/inputMap.cpp.i
 
 # target to preprocess a source file
 src/inputMap.cpp.i:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.i
 .PHONY : src/inputMap.cpp.i
 
 src/inputMap.s: src/inputMap.cpp.s
@@ -175,7 +175,7 @@ src/inputMap.s: src/inputMap.cpp.s
 
 # target to generate assembly for a file
 src/inputMap.cpp.s:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.s
 .PHONY : src/inputMap.cpp.s
 
 src/windowManager.o: src/windowManager.cpp.o
@@ -183,7 +183,7 @@ src/windowManager.o: src/windowManager.cpp.o
 
 # target to build an object file
 src/windowManager.cpp.o:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o
 .PHONY : src/windowManager.cpp.o
 
 src/windowManager.i: src/windowManager.cpp.i
@@ -191,7 +191,7 @@ src/windowManager.i: src/windowManager.cpp.i
 
 # target to preprocess a source file
 src/windowManager.cpp.i:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.i
 .PHONY : src/windowManager.cpp.i
 
 src/windowManager.s: src/windowManager.cpp.s
@@ -199,7 +199,7 @@ src/windowManager.s: src/windowManager.cpp.s
 
 # target to generate assembly for a file
 src/windowManager.cpp.s:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.s
 .PHONY : src/windowManager.cpp.s
 
 # Help Target
@@ -231,6 +231,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

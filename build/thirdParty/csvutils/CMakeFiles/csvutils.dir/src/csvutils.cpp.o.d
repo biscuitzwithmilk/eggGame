@@ -1,5 +1,5 @@
 thirdParty/csvutils/CMakeFiles/csvutils.dir/src/csvutils.cpp.o: \
- /home/joebiscuitz/Documents/eggGame/thirdParty/csvutils/src/csvutils.cpp \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/csvutils/src/csvutils.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/16/iostream \
  /usr/include/c++/16/bits/requires_hosted.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -151,8 +151,8 @@ thirdParty/csvutils/CMakeFiles/csvutils.dir/src/csvutils.cpp.o: \
  /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
  /usr/include/c++/16/bits/vector.tcc \
- /home/joebiscuitz/Documents/eggGame/thirdParty/csvutils/include/csvutils.h \
- /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/include/jsonutils.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/csvutils/include/csvutils.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/include/jsonutils.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/16/algorithm \
  /usr/include/c++/16/bits/stl_algo.h \
  /usr/include/c++/16/bits/algorithmfwd.h \

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/eggGame
+CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/Github/eggGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/eggGame/build
+CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/Github/eggGame/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils//CMakeFiles/progress.marks
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 0
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils//CMakeFiles/progress.marks
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/clean
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/preinstall
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/preinstall
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ jsonutils: thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule
 
 # fast build rule for target.
 jsonutils/fast:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build
 .PHONY : jsonutils/fast
 
 src/jsonutils.o: src/jsonutils.cpp.o
@@ -135,7 +135,7 @@ src/jsonutils.o: src/jsonutils.cpp.o
 
 # target to build an object file
 src/jsonutils.cpp.o:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o
 .PHONY : src/jsonutils.cpp.o
 
 src/jsonutils.i: src/jsonutils.cpp.i
@@ -143,7 +143,7 @@ src/jsonutils.i: src/jsonutils.cpp.i
 
 # target to preprocess a source file
 src/jsonutils.cpp.i:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.i
 .PHONY : src/jsonutils.cpp.i
 
 src/jsonutils.s: src/jsonutils.cpp.s
@@ -151,7 +151,7 @@ src/jsonutils.s: src/jsonutils.cpp.s
 
 # target to generate assembly for a file
 src/jsonutils.cpp.s:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.s
 .PHONY : src/jsonutils.cpp.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

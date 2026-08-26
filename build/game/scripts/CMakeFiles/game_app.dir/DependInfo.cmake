@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/joebiscuitz/Documents/eggGame/game/scripts/src/game.cpp" "game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o" "gcc" "game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o.d"
-  "/home/joebiscuitz/Documents/eggGame/game/scripts/src/inputMap.cpp" "game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o" "gcc" "game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o.d"
-  "/home/joebiscuitz/Documents/eggGame/game/scripts/src/windowManager.cpp" "game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o" "gcc" "game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o.d"
+  "/home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/game.cpp" "game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o" "gcc" "game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o.d"
+  "/home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/inputMap.cpp" "game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o" "gcc" "game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o.d"
+  "/home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/windowManager.cpp" "game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o" "gcc" "game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o.d"
   "" "game/scripts/game_app" "gcc" "game/scripts/CMakeFiles/game_app.dir/link.d"
   )
 

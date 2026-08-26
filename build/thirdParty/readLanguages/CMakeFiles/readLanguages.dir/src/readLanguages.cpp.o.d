@@ -1,5 +1,5 @@
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o: \
- /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/src/readLanguages.cpp \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/src/readLanguages.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/16/filesystem \
  /usr/include/c++/16/bits/requires_hosted.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -171,12 +171,12 @@ thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o: \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/16/bits/fstream.tcc /usr/include/c++/16/iostream \
- /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/include/readLanguages.h \
- /home/joebiscuitz/Documents/eggGame/thirdParty/csvutils/include/csvutils.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/include/readLanguages.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/csvutils/include/csvutils.h \
  /usr/include/c++/16/vector /usr/include/c++/16/bits/stl_vector.h \
  /usr/include/c++/16/bits/stl_bvector.h \
  /usr/include/c++/16/bits/vector.tcc \
- /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/include/jsonutils.h \
+ /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/include/jsonutils.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/16/algorithm \
  /usr/include/c++/16/bits/stl_algo.h \
  /usr/include/c++/16/bits/algorithmfwd.h \

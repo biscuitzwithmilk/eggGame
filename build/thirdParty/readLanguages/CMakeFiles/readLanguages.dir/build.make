@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/eggGame
+CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/Github/eggGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/eggGame/build
+CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/Github/eggGame/build
 
 # Include any dependencies generated for this target.
 include thirdParty/readLanguages/CMakeFiles/readLanguages.dir/depend.make
@@ -73,18 +73,18 @@ thirdParty/readLanguages/CMakeFiles/readLanguages.dir/codegen:
 .PHONY : thirdParty/readLanguages/CMakeFiles/readLanguages.dir/codegen
 
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o: thirdParty/readLanguages/CMakeFiles/readLanguages.dir/flags.make
-thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o: /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/src/readLanguages.cpp
+thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o: /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/src/readLanguages.cpp
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o: thirdParty/readLanguages/CMakeFiles/readLanguages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o -MF CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o.d -o CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o -c /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/src/readLanguages.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o -MF CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o.d -o CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o -c /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/src/readLanguages.cpp
 
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/readLanguages.dir/src/readLanguages.cpp.i"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/src/readLanguages.cpp > CMakeFiles/readLanguages.dir/src/readLanguages.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/src/readLanguages.cpp > CMakeFiles/readLanguages.dir/src/readLanguages.cpp.i
 
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/readLanguages.dir/src/readLanguages.cpp.s"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/src/readLanguages.cpp -o CMakeFiles/readLanguages.dir/src/readLanguages.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/src/readLanguages.cpp -o CMakeFiles/readLanguages.dir/src/readLanguages.cpp.s
 
 # Object files for target readLanguages
 readLanguages_OBJECTS = \
@@ -96,19 +96,19 @@ readLanguages_EXTERNAL_OBJECTS =
 thirdParty/readLanguages/libreadLanguages.a: thirdParty/readLanguages/CMakeFiles/readLanguages.dir/src/readLanguages.cpp.o
 thirdParty/readLanguages/libreadLanguages.a: thirdParty/readLanguages/CMakeFiles/readLanguages.dir/build.make
 thirdParty/readLanguages/libreadLanguages.a: thirdParty/readLanguages/CMakeFiles/readLanguages.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libreadLanguages.a"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages && $(CMAKE_COMMAND) -P CMakeFiles/readLanguages.dir/cmake_clean_target.cmake
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/readLanguages.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libreadLanguages.a"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages && $(CMAKE_COMMAND) -P CMakeFiles/readLanguages.dir/cmake_clean_target.cmake
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/readLanguages.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/build: thirdParty/readLanguages/libreadLanguages.a
 .PHONY : thirdParty/readLanguages/CMakeFiles/readLanguages.dir/build
 
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/clean:
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages && $(CMAKE_COMMAND) -P CMakeFiles/readLanguages.dir/cmake_clean.cmake
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages && $(CMAKE_COMMAND) -P CMakeFiles/readLanguages.dir/cmake_clean.cmake
 .PHONY : thirdParty/readLanguages/CMakeFiles/readLanguages.dir/clean
 
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/depend:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joebiscuitz/Documents/eggGame /home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages /home/joebiscuitz/Documents/eggGame/build /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages /home/joebiscuitz/Documents/eggGame/build/thirdParty/readLanguages/CMakeFiles/readLanguages.dir/DependInfo.cmake "--color=$(COLOR)" readLanguages
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joebiscuitz/Documents/Github/eggGame /home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages /home/joebiscuitz/Documents/Github/eggGame/build /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/readLanguages/CMakeFiles/readLanguages.dir/DependInfo.cmake "--color=$(COLOR)" readLanguages
 .PHONY : thirdParty/readLanguages/CMakeFiles/readLanguages.dir/depend
 

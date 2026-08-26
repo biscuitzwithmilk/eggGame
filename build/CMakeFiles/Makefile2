@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/eggGame
+CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/Github/eggGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/eggGame/build
+CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/Github/eggGame/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -173,14 +173,14 @@ thirdParty/readLanguages/clean: thirdParty/readLanguages/CMakeFiles/readLanguage
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/all:
 	$(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/depend
 	$(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=7,8 "Built target jsonutils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=7,8 "Built target jsonutils"
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/all
 
 # Build rule for subdir invocation for target.
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 0
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule
 
 # Convenience name for target.
@@ -190,7 +190,7 @@ jsonutils: thirdParty/jsonutils/CMakeFiles/jsonutils.dir/rule
 # codegen rule for target.
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make thirdParty/jsonutils/CMakeFiles/jsonutils.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=7,8 "Finished codegen for target jsonutils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=7,8 "Finished codegen for target jsonutils"
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/codegen
 
 # clean rule for target.
@@ -205,14 +205,14 @@ thirdParty/jsonutils/CMakeFiles/jsonutils.dir/clean:
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/all: thirdParty/csvutils/CMakeFiles/csvutils.dir/all
 	$(MAKE) $(MAKESILENT) -f thirdParty/readLanguages/CMakeFiles/readLanguages.dir/build.make thirdParty/readLanguages/CMakeFiles/readLanguages.dir/depend
 	$(MAKE) $(MAKESILENT) -f thirdParty/readLanguages/CMakeFiles/readLanguages.dir/build.make thirdParty/readLanguages/CMakeFiles/readLanguages.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=9,10 "Built target readLanguages"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=9,10 "Built target readLanguages"
 .PHONY : thirdParty/readLanguages/CMakeFiles/readLanguages.dir/all
 
 # Build rule for subdir invocation for target.
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 0
 .PHONY : thirdParty/readLanguages/CMakeFiles/readLanguages.dir/rule
 
 # Convenience name for target.
@@ -222,7 +222,7 @@ readLanguages: thirdParty/readLanguages/CMakeFiles/readLanguages.dir/rule
 # codegen rule for target.
 thirdParty/readLanguages/CMakeFiles/readLanguages.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f thirdParty/readLanguages/CMakeFiles/readLanguages.dir/build.make thirdParty/readLanguages/CMakeFiles/readLanguages.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=9,10 "Finished codegen for target readLanguages"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=9,10 "Finished codegen for target readLanguages"
 .PHONY : thirdParty/readLanguages/CMakeFiles/readLanguages.dir/codegen
 
 # clean rule for target.
@@ -237,14 +237,14 @@ thirdParty/readLanguages/CMakeFiles/readLanguages.dir/clean:
 thirdParty/csvutils/CMakeFiles/csvutils.dir/all:
 	$(MAKE) $(MAKESILENT) -f thirdParty/csvutils/CMakeFiles/csvutils.dir/build.make thirdParty/csvutils/CMakeFiles/csvutils.dir/depend
 	$(MAKE) $(MAKESILENT) -f thirdParty/csvutils/CMakeFiles/csvutils.dir/build.make thirdParty/csvutils/CMakeFiles/csvutils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=1,2 "Built target csvutils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=1,2 "Built target csvutils"
 .PHONY : thirdParty/csvutils/CMakeFiles/csvutils.dir/all
 
 # Build rule for subdir invocation for target.
 thirdParty/csvutils/CMakeFiles/csvutils.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdParty/csvutils/CMakeFiles/csvutils.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 0
 .PHONY : thirdParty/csvutils/CMakeFiles/csvutils.dir/rule
 
 # Convenience name for target.
@@ -254,7 +254,7 @@ csvutils: thirdParty/csvutils/CMakeFiles/csvutils.dir/rule
 # codegen rule for target.
 thirdParty/csvutils/CMakeFiles/csvutils.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f thirdParty/csvutils/CMakeFiles/csvutils.dir/build.make thirdParty/csvutils/CMakeFiles/csvutils.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=1,2 "Finished codegen for target csvutils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=1,2 "Finished codegen for target csvutils"
 .PHONY : thirdParty/csvutils/CMakeFiles/csvutils.dir/codegen
 
 # clean rule for target.
@@ -271,14 +271,14 @@ game/scripts/CMakeFiles/game_app.dir/all: thirdParty/readLanguages/CMakeFiles/re
 game/scripts/CMakeFiles/game_app.dir/all: thirdParty/csvutils/CMakeFiles/csvutils.dir/all
 	$(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/depend
 	$(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=3,4,5,6 "Built target game_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=3,4,5,6 "Built target game_app"
 .PHONY : game/scripts/CMakeFiles/game_app.dir/all
 
 # Build rule for subdir invocation for target.
 game/scripts/CMakeFiles/game_app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game/scripts/CMakeFiles/game_app.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/eggGame/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles 0
 .PHONY : game/scripts/CMakeFiles/game_app.dir/rule
 
 # Convenience name for target.
@@ -288,7 +288,7 @@ game_app: game/scripts/CMakeFiles/game_app.dir/rule
 # codegen rule for target.
 game/scripts/CMakeFiles/game_app.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f game/scripts/CMakeFiles/game_app.dir/build.make game/scripts/CMakeFiles/game_app.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=3,4,5,6 "Finished codegen for target game_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=3,4,5,6 "Finished codegen for target game_app"
 .PHONY : game/scripts/CMakeFiles/game_app.dir/codegen
 
 # clean rule for target.

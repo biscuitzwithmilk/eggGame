@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/eggGame
+CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/Github/eggGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/eggGame/build
+CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/Github/eggGame/build
 
 # Include any dependencies generated for this target.
 include thirdParty/jsonutils/CMakeFiles/jsonutils.dir/depend.make
@@ -73,18 +73,18 @@ thirdParty/jsonutils/CMakeFiles/jsonutils.dir/codegen:
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/codegen
 
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o: thirdParty/jsonutils/CMakeFiles/jsonutils.dir/flags.make
-thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o: /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/src/jsonutils.cpp
+thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o: /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/src/jsonutils.cpp
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o: thirdParty/jsonutils/CMakeFiles/jsonutils.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o -MF CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o.d -o CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o -c /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/src/jsonutils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o -MF CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o.d -o CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o -c /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/src/jsonutils.cpp
 
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/jsonutils.dir/src/jsonutils.cpp.i"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/src/jsonutils.cpp > CMakeFiles/jsonutils.dir/src/jsonutils.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/src/jsonutils.cpp > CMakeFiles/jsonutils.dir/src/jsonutils.cpp.i
 
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/jsonutils.dir/src/jsonutils.cpp.s"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/src/jsonutils.cpp -o CMakeFiles/jsonutils.dir/src/jsonutils.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/src/jsonutils.cpp -o CMakeFiles/jsonutils.dir/src/jsonutils.cpp.s
 
 # Object files for target jsonutils
 jsonutils_OBJECTS = \
@@ -96,19 +96,19 @@ jsonutils_EXTERNAL_OBJECTS =
 thirdParty/jsonutils/libjsonutils.a: thirdParty/jsonutils/CMakeFiles/jsonutils.dir/src/jsonutils.cpp.o
 thirdParty/jsonutils/libjsonutils.a: thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build.make
 thirdParty/jsonutils/libjsonutils.a: thirdParty/jsonutils/CMakeFiles/jsonutils.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libjsonutils.a"
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils && $(CMAKE_COMMAND) -P CMakeFiles/jsonutils.dir/cmake_clean_target.cmake
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/jsonutils.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libjsonutils.a"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils && $(CMAKE_COMMAND) -P CMakeFiles/jsonutils.dir/cmake_clean_target.cmake
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/jsonutils.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build: thirdParty/jsonutils/libjsonutils.a
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/build
 
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/clean:
-	cd /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils && $(CMAKE_COMMAND) -P CMakeFiles/jsonutils.dir/cmake_clean.cmake
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils && $(CMAKE_COMMAND) -P CMakeFiles/jsonutils.dir/cmake_clean.cmake
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/clean
 
 thirdParty/jsonutils/CMakeFiles/jsonutils.dir/depend:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joebiscuitz/Documents/eggGame /home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils /home/joebiscuitz/Documents/eggGame/build /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils /home/joebiscuitz/Documents/eggGame/build/thirdParty/jsonutils/CMakeFiles/jsonutils.dir/DependInfo.cmake "--color=$(COLOR)" jsonutils
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joebiscuitz/Documents/Github/eggGame /home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils /home/joebiscuitz/Documents/Github/eggGame/build /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils /home/joebiscuitz/Documents/Github/eggGame/build/thirdParty/jsonutils/CMakeFiles/jsonutils.dir/DependInfo.cmake "--color=$(COLOR)" jsonutils
 .PHONY : thirdParty/jsonutils/CMakeFiles/jsonutils.dir/depend
 

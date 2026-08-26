@@ -1,5 +1,5 @@
 game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o: \
- /home/joebiscuitz/Documents/eggGame/game/scripts/src/windowManager.cpp \
+ /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/windowManager.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/16/iostream \
  /usr/include/c++/16/bits/requires_hosted.h \
  /usr/include/c++/16/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -142,4 +142,4 @@ game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o: \
  /usr/include/c++/16/bits/ostream_print.h \
  /usr/include/c++/16/bits/ostream.tcc /usr/include/c++/16/istream \
  /usr/include/c++/16/bits/istream.tcc /usr/include/raylib.h \
- /home/joebiscuitz/Documents/eggGame/game/scripts/include/windowManager.h
+ /home/joebiscuitz/Documents/Github/eggGame/game/scripts/include/windowManager.h

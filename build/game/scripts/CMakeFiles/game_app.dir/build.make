@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/eggGame
+CMAKE_SOURCE_DIR = /home/joebiscuitz/Documents/Github/eggGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/eggGame/build
+CMAKE_BINARY_DIR = /home/joebiscuitz/Documents/Github/eggGame/build
 
 # Include any dependencies generated for this target.
 include game/scripts/CMakeFiles/game_app.dir/depend.make
@@ -73,46 +73,46 @@ game/scripts/CMakeFiles/game_app.dir/codegen:
 .PHONY : game/scripts/CMakeFiles/game_app.dir/codegen
 
 game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o: game/scripts/CMakeFiles/game_app.dir/flags.make
-game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o: /home/joebiscuitz/Documents/eggGame/game/scripts/src/game.cpp
+game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o: /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/game.cpp
 game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o: game/scripts/CMakeFiles/game_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o -MF CMakeFiles/game_app.dir/src/game.cpp.o.d -o CMakeFiles/game_app.dir/src/game.cpp.o -c /home/joebiscuitz/Documents/eggGame/game/scripts/src/game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT game/scripts/CMakeFiles/game_app.dir/src/game.cpp.o -MF CMakeFiles/game_app.dir/src/game.cpp.o.d -o CMakeFiles/game_app.dir/src/game.cpp.o -c /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/game.cpp
 
 game/scripts/CMakeFiles/game_app.dir/src/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game_app.dir/src/game.cpp.i"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/eggGame/game/scripts/src/game.cpp > CMakeFiles/game_app.dir/src/game.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/game.cpp > CMakeFiles/game_app.dir/src/game.cpp.i
 
 game/scripts/CMakeFiles/game_app.dir/src/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game_app.dir/src/game.cpp.s"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/eggGame/game/scripts/src/game.cpp -o CMakeFiles/game_app.dir/src/game.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/game.cpp -o CMakeFiles/game_app.dir/src/game.cpp.s
 
 game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o: game/scripts/CMakeFiles/game_app.dir/flags.make
-game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o: /home/joebiscuitz/Documents/eggGame/game/scripts/src/inputMap.cpp
+game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o: /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/inputMap.cpp
 game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o: game/scripts/CMakeFiles/game_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o -MF CMakeFiles/game_app.dir/src/inputMap.cpp.o.d -o CMakeFiles/game_app.dir/src/inputMap.cpp.o -c /home/joebiscuitz/Documents/eggGame/game/scripts/src/inputMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.o -MF CMakeFiles/game_app.dir/src/inputMap.cpp.o.d -o CMakeFiles/game_app.dir/src/inputMap.cpp.o -c /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/inputMap.cpp
 
 game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game_app.dir/src/inputMap.cpp.i"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/eggGame/game/scripts/src/inputMap.cpp > CMakeFiles/game_app.dir/src/inputMap.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/inputMap.cpp > CMakeFiles/game_app.dir/src/inputMap.cpp.i
 
 game/scripts/CMakeFiles/game_app.dir/src/inputMap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game_app.dir/src/inputMap.cpp.s"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/eggGame/game/scripts/src/inputMap.cpp -o CMakeFiles/game_app.dir/src/inputMap.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/inputMap.cpp -o CMakeFiles/game_app.dir/src/inputMap.cpp.s
 
 game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o: game/scripts/CMakeFiles/game_app.dir/flags.make
-game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o: /home/joebiscuitz/Documents/eggGame/game/scripts/src/windowManager.cpp
+game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o: /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/windowManager.cpp
 game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o: game/scripts/CMakeFiles/game_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o -MF CMakeFiles/game_app.dir/src/windowManager.cpp.o.d -o CMakeFiles/game_app.dir/src/windowManager.cpp.o -c /home/joebiscuitz/Documents/eggGame/game/scripts/src/windowManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.o -MF CMakeFiles/game_app.dir/src/windowManager.cpp.o.d -o CMakeFiles/game_app.dir/src/windowManager.cpp.o -c /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/windowManager.cpp
 
 game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game_app.dir/src/windowManager.cpp.i"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/eggGame/game/scripts/src/windowManager.cpp > CMakeFiles/game_app.dir/src/windowManager.cpp.i
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/windowManager.cpp > CMakeFiles/game_app.dir/src/windowManager.cpp.i
 
 game/scripts/CMakeFiles/game_app.dir/src/windowManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game_app.dir/src/windowManager.cpp.s"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/eggGame/game/scripts/src/windowManager.cpp -o CMakeFiles/game_app.dir/src/windowManager.cpp.s
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joebiscuitz/Documents/Github/eggGame/game/scripts/src/windowManager.cpp -o CMakeFiles/game_app.dir/src/windowManager.cpp.s
 
 # Object files for target game_app
 game_app_OBJECTS = \
@@ -133,18 +133,18 @@ game/scripts/game_app: thirdParty/jsonutils/libjsonutils.a
 game/scripts/game_app: thirdParty/readLanguages/libreadLanguages.a
 game/scripts/game_app: thirdParty/csvutils/libcsvutils.a
 game/scripts/game_app: game/scripts/CMakeFiles/game_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/joebiscuitz/Documents/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable game_app"
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game_app.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/joebiscuitz/Documents/Github/eggGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable game_app"
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 game/scripts/CMakeFiles/game_app.dir/build: game/scripts/game_app
 .PHONY : game/scripts/CMakeFiles/game_app.dir/build
 
 game/scripts/CMakeFiles/game_app.dir/clean:
-	cd /home/joebiscuitz/Documents/eggGame/build/game/scripts && $(CMAKE_COMMAND) -P CMakeFiles/game_app.dir/cmake_clean.cmake
+	cd /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts && $(CMAKE_COMMAND) -P CMakeFiles/game_app.dir/cmake_clean.cmake
 .PHONY : game/scripts/CMakeFiles/game_app.dir/clean
 
 game/scripts/CMakeFiles/game_app.dir/depend:
-	cd /home/joebiscuitz/Documents/eggGame/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joebiscuitz/Documents/eggGame /home/joebiscuitz/Documents/eggGame/game/scripts /home/joebiscuitz/Documents/eggGame/build /home/joebiscuitz/Documents/eggGame/build/game/scripts /home/joebiscuitz/Documents/eggGame/build/game/scripts/CMakeFiles/game_app.dir/DependInfo.cmake "--color=$(COLOR)" game_app
+	cd /home/joebiscuitz/Documents/Github/eggGame/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joebiscuitz/Documents/Github/eggGame /home/joebiscuitz/Documents/Github/eggGame/game/scripts /home/joebiscuitz/Documents/Github/eggGame/build /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts /home/joebiscuitz/Documents/Github/eggGame/build/game/scripts/CMakeFiles/game_app.dir/DependInfo.cmake "--color=$(COLOR)" game_app
 .PHONY : game/scripts/CMakeFiles/game_app.dir/depend
 

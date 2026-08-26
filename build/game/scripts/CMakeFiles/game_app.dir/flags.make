@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/joebiscuitz/Documents/eggGame/game/scripts/include -I/home/joebiscuitz/Documents/eggGame/thirdParty/csvutils/include -I/home/joebiscuitz/Documents/eggGame/thirdParty/jsonutils/include -I/home/joebiscuitz/Documents/eggGame/thirdParty/readLanguages/include
+CXX_INCLUDES = -I/home/joebiscuitz/Documents/Github/eggGame/game/scripts/include -I/home/joebiscuitz/Documents/Github/eggGame/thirdParty/csvutils/include -I/home/joebiscuitz/Documents/Github/eggGame/thirdParty/jsonutils/include -I/home/joebiscuitz/Documents/Github/eggGame/thirdParty/readLanguages/include
 
 CXX_FLAGS = 
 
