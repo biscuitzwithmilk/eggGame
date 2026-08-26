@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcsvutils.a CMakeFiles/csvutils.dir/src/csvutils.cpp.o
-/usr/bin/ranlib libcsvutils.a
