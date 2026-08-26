@@ -1,0 +1,16 @@
+{
+    "CurrentLanguage": {
+        "key": 0,
+        "path": "game/languages/en/en.csv"
+    },
+    "CurrentLine": 4,
+    "CurrentSection": "//section1",
+    "TextSettings": {
+        "fontSpeed": "Fast",
+        "menuText": {
+            "font": "FontName",
+            "fontSize": 22
+        }
+    },
+    "TotalLanguages": 3
+}
