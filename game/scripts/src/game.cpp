@@ -55,7 +55,7 @@ int main(){
     int currentLine=jsonUtils::getJson("game/json/textSettings.json", "/CurrentLine");
     int currentlanguage = jsonUtils::getJson("game/json/textSettings.json", "/CurrentLanguage/key");
     window window1;
-    rlib::SetConfigFlags(rlib::FLAG_WINDOW_RESIZABLE | rlib::FLAG_VSYNC_HINT);
+    rlib::SetConfigFlags(rlib::FLAG_BORDERLESS_WINDOWED_MODE | rlib::FLAG_VSYNC_HINT);
     rlib::SetTargetFPS(window1.targetFPS);
     rlib::InitWindow(window1.transform.scale.Width,window1.transform.scale.Height, "test game");
 
@@ -96,7 +96,7 @@ int main(){
                 if (currentSection.lines[currentLine].effects[i].effectName=="strong"){
 
                     if(n >= currentSection.lines[currentLine].effects[i].startPos){
-                        fontSize = 30;
+                        fontSize = currentSection.lines[currentLine].effects[i].value;
                     }
                     if(n >= currentSection.lines[currentLine].effects[i].endPos){
                         fontSize = 20;

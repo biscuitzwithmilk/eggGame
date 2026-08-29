@@ -8,6 +8,7 @@ namespace readSection{
     struct effect{
         std::string effectName;
         std::string effectedText;
+        int value;
         int startPos;
         int endPos;
     };
