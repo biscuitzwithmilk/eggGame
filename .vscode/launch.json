@@ -3,11 +3,20 @@
     "configurations": [
         {
             "name": "Launch game_app",
-            "type": "node",
+            "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/game/scripts/game_app",
             "args": [],
             "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "environment": [
+                {
+                    "name": "DISPLAY",
+                    "value": ":0"
+                }
+            ],
             "preLaunchTask": "Build game_app",
         }
     ]
