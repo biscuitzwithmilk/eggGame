@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <ostream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -12,7 +13,7 @@ void readSection::ClearAllLineEffects(readSection::line &currentLine){
 void readSection::getEffect(readSection::line &currentLine, std::string name, std::string endName, std::string &output){
     readSection::effect currentEffect;
     int nameLength;
-    std::string tagPrefix = name.substr(0,name.length()-1)+"=";
+    std::string namePrefix = name.substr(0,name.length()-1)+"=";
 
     while(output.find(name.substr(1,name.length()-1))!= std::string::npos){
 
@@ -20,7 +21,7 @@ void readSection::getEffect(readSection::line &currentLine, std::string name, st
             return;
         }
         currentEffect.effectName=name.substr(1,name.length()-2);
-        if(output.find(tagPrefix)==std::string::npos){
+        if(output.find(namePrefix)==std::string::npos){
             currentEffect.startPos=output.find(name);
             nameLength = output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos).length()+1;
             output=output.erase(currentEffect.startPos, name.length());
@@ -38,9 +39,10 @@ void readSection::getEffect(readSection::line &currentLine, std::string name, st
             }
         }
         else {
-            currentEffect.startPos=output.find(tagPrefix);
+            currentEffect.startPos=output.find(namePrefix);
             nameLength = output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos).length()+1;
             output=output.erase(currentEffect.startPos, name.length());
+            std::cout << currentEffect.effectName << std::stoi(output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos))) << std::endl; 
             currentEffect.value=std::stoi(output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos))); 
             output=output.erase(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos+1);
             currentEffect.endPos=output.find(endName);
@@ -100,6 +102,7 @@ bool readSection::getNextSection(std::ifstream &iFile, readSection::section &cur
 
         readSection::ClearAllLineEffects(currentLine);
         readSection::getEffect(currentLine, "<shakey>", "</shakey>", column);
+        readSection::getEffect(currentLine, "<fontSize>", "</fontSize>", column);
         readSection::getEffect(currentLine, "<slow>", "</slow>", column);
         readSection::getEffect(currentLine, "<strong>", "</strong>", column);
         

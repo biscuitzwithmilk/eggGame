@@ -1,10 +1,10 @@
 //section1
 Key,Char_Name,Context,English,Español
 egg.dialogue1,Egg,testing,I'm happy!,Estoy tan feliz!
-theMan.dialogue1,Man,testing,Are you...though?,Pero lo estas realmente?
+theMan.dialogue1,Man,testing,Are you...though?,Pero lo estas <fontSize=30>realmente?</fontSize>
 egg.dialogue2,Egg,testing,I think so...,Eso creo...
-theMan.dialogue2,Man,testing,So you're not sure?,Entonces no estas seguro?
-egg.dialogue3,Egg,testing,I never am.,Nunca lo estoy.
+theMan.dialogue2,Man,testing,So you're not sure?,Entonces <fontSize=40>no</fontSize> estas seguro?
+egg.dialogue3,Egg,testing,I never am.,<fontSize=12>Nunca lo estoy.</fontSize>
 //endsection1
 //section2
 Key,Char_Name,Context,English,Español

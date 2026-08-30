@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <ostream>
 #include "windowManager.h"
 #include "csvutils.h"
 #include "readLanguages.h"
@@ -81,8 +82,8 @@ int main(){
             cout << currentSection.lines[currentLine].charName+":\n"+currentSection.lines[currentLine].translation << endl;
             
             for (int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
-                cout << currentSection.lines[currentLine].effects[i].effectName + ": " + currentSection.lines[currentLine].effects[i].effectedText << endl;
-                cout << currentSection.lines[currentLine].effects[i].startPos << endl;
+                cout << currentSection.lines[currentLine].effects[i].effectName + ": " + currentSection.lines[currentLine].effects[i].effectedText << std::endl;
+                cout << currentSection.lines[currentLine].effects[i].startPos << std::endl;
             }
         }
         rlib::Vector2 currentSpecialPos = {180, 220};
@@ -92,14 +93,15 @@ int main(){
             int codepointSize = 0;
             int codepoint = rlib::GetCodepoint(&currentSpecialText[n], &codepointSize);
             float fontSize = 20;
+            float defautFontSize = fontSize;
             for(int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
-                if (currentSection.lines[currentLine].effects[i].effectName=="strong"){
+                if (currentSection.lines[currentLine].effects[i].effectName=="fontSize"){
 
                     if(n >= currentSection.lines[currentLine].effects[i].startPos){
                         fontSize = currentSection.lines[currentLine].effects[i].value;
                     }
                     if(n >= currentSection.lines[currentLine].effects[i].endPos){
-                        fontSize = 20;
+                        fontSize = defautFontSize;
                     }
                 }
             }
