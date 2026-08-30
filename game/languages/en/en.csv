@@ -1,10 +1,10 @@
 //section1
 Key,Char_Name,Context,English,English
 egg.dialogue1,Egg,testing,I'm happy!,I'm happy!
-theMan.dialogue1,Man,testing,Are you...though?,<strong>Are</strong> you...<strong>though</strong>?
+theMan.dialogue1,Man,testing,Are you...though?,Are you...<strong>though</strong>?
 egg.dialogue2,Egg,testing,I think so...,I think so...
-theMan.dialogue2,Man,testing,So you're not sure?,So you're <strong>not</strong> sure?
-egg.dialogue3,Egg,testing,I never am.,<slow><shakey>I never am.</shakey></slow>
+theMan.dialogue2,Man,testing,So you're not sure?,So you're <strong=30>not</strong> sure?
+egg.dialogue3,Egg,testing,I never am.,<slow=18><shakey=18>I never am.</shakey></slow>
 //endsection1
 //section2
 Key,Char_Name,Context,English,English

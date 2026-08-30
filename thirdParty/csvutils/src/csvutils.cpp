@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
 #include <vector>
 #include "csvutils.h"
 #include "jsonutils.h"
@@ -8,27 +9,54 @@
 void readSection::ClearAllLineEffects(readSection::line &currentLine){
     currentLine.effects.clear();
 }
-void readSection::getEffect(readSection::line &currentLine, std::string tag, std::string endTag, std::string &output){
+void readSection::getEffect(readSection::line &currentLine, std::string name, std::string endName, std::string &output){
     readSection::effect currentEffect;
-    std::string text;
-    while(output.find(tag)!= std::string::npos){
-        currentEffect.effectName=tag.substr(1,tag.length()-2);
-        currentEffect.startPos=output.find(tag);
-        currentEffect.endPos=output.find(endTag);
-        text=output.substr(0,currentEffect.startPos);
-        text+=output.substr(currentEffect.startPos+tag.length(),currentEffect.endPos-currentEffect.startPos-tag.length());
-        text+=output.substr(currentEffect.endPos+endTag.length());
-        currentEffect.effectedText=output.substr(currentEffect.startPos+tag.length(),currentEffect.endPos-currentEffect.startPos-tag.length());
-        output = text;
-        currentEffect.endPos -= (tag.length());
-        if(currentLine.effects.size()!=0){
-            for(int i=0; i<currentLine.effects.size(); i++){
-                if(currentLine.effects[i].effectName!=currentEffect.effectName){
-                    currentLine.effects[i].endPos-=tag.length();
-                    currentLine.effects[i].startPos-=tag.length();
+    int nameLength;
+    std::string tagPrefix = name.substr(0,name.length()-1)+"=";
+
+    while(output.find(name.substr(1,name.length()-1))!= std::string::npos){
+
+        if(output.find(endName)==std::string::npos){
+            return;
+        }
+        currentEffect.effectName=name.substr(1,name.length()-2);
+        if(output.find(tagPrefix)==std::string::npos){
+            currentEffect.startPos=output.find(name);
+            nameLength = output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos).length()+1;
+            output=output.erase(currentEffect.startPos, name.length());
+            currentEffect.value=0;
+            currentEffect.endPos=output.find(endName);
+            output=output.erase(currentEffect.endPos, endName.length());
+
+            if(currentLine.effects.size()!=0){
+                for(int i=0; i<currentLine.effects.size(); i++){
+                    if(currentLine.effects[i].effectName!=currentEffect.effectName){
+                        currentLine.effects[i].endPos-=nameLength;
+                        currentLine.effects[i].startPos-=nameLength;
+                    }
                 }
             }
         }
+        else {
+            currentEffect.startPos=output.find(tagPrefix);
+            nameLength = output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos).length()+1;
+            output=output.erase(currentEffect.startPos, name.length());
+            currentEffect.value=std::stoi(output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos))); 
+            output=output.erase(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos+1);
+            currentEffect.endPos=output.find(endName);
+            output=output.erase(currentEffect.endPos, endName.length());
+
+            if(currentLine.effects.size()!=0){
+                for(int i=0; i<currentLine.effects.size(); i++){
+                    if(currentLine.effects[i].effectName!=currentEffect.effectName){
+                        currentLine.effects[i].endPos-=nameLength;
+                        currentLine.effects[i].startPos-=nameLength;
+                    }
+                }
+            }
+        }
+
+        
         currentLine.effects.push_back(currentEffect);
     }
 }
