@@ -2,16 +2,17 @@
 
 #include <fstream>
 #include <string>
-#include "csvutils.h"
+#include "getSections.h"
+#include <vector>
 
 namespace getLang{
     struct language{
         std::string path;
     };
     struct languages{
-        language* languageList;
+        std::vector<language> languageList;
         int nbrLanguages = 0;
     };
     languages getLanguages();
-    bool changeLanguage(readSection::section &currentSection, int language);
+    bool changeLanguage(Section::section &currentSection, int language);
 }

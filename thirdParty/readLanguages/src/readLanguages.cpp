@@ -15,23 +15,19 @@ getLang::languages getLang::getLanguages(){
         if(dir_entry.path().extension() == ".csv"){
 
             text += dir_entry.path().string()+"\n";
-            translation.nbrLanguages++;
+            std::string currentPath = text.substr(0, text.find("\n"));
+            translation.languageList.push_back({currentPath});
+            text = text.substr(text.find("\n")+1);
         }
     }
-    jsonUtils::editJson("game/json/textSettings.json", "/TotalLanguages", translation.nbrLanguages);
-    translation.languageList = new getLang::language[translation.nbrLanguages];
-    for(int i = 0; i<translation.nbrLanguages; i++){
-        std::string currentPath = text.substr(0, text.find("\n"));
-        translation.languageList[i].path = currentPath;
-        text = text.substr(text.find("\n")+1);
-    }
+    jsonUtils::editJson("game/json/textSettings.json", "/TotalLanguages", translation.languageList.size());
     return translation;
 }
 
-bool getLang::changeLanguage(readSection::section &currentSection, int language){
+bool getLang::changeLanguage(Section::section &currentSection, int language){
     std::ifstream iFile;
     getLang::languages translationList = getLang::getLanguages();
-    if (language < 0 || language >= translationList.nbrLanguages){
+    if (language < 0 || language >= translationList.languageList.size()){
         std::cerr << "Invalid language index: " << language << "\n";
         return false;
     }
@@ -49,8 +45,8 @@ bool getLang::changeLanguage(readSection::section &currentSection, int language)
     }
     jsonUtils::editJson("game/json/textSettings.json", "/CurrentLanguage/path", translationList.languageList[language].path);
     jsonUtils::editJson("game/json/textSettings.json", "/CurrentLanguage/key", language);
-    readSection::getNextSection(iFile, currentSection);
-    readSection::getToSection(iFile, currentSection, goalsection);
+    Section::getNextSection(iFile, currentSection);
+    Section::getToSection(iFile, currentSection, goalsection);
 
     if (currentSection.name != goalsection){
         std::cerr << "Failed to find section: " << goalsection << " in language file\n";

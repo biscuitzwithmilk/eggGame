@@ -1,6 +1,6 @@
 # Minimal CMake file to build the csvutils library
 add_library(csvutils STATIC
-    src/csvutils.cpp
+    src/getSections.cpp
 )
 
 target_include_directories(csvutils PUBLIC

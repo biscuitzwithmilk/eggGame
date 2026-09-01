@@ -4,14 +4,15 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "csvutils.h"
+#include <any>
+#include "getSections.h"
 #include "jsonutils.h"
 
-void readSection::ClearAllLineEffects(readSection::line &currentLine){
+void Effect::ClearAllLineEffects(Section::line &currentLine){
     currentLine.effects.clear();
 }
-void readSection::getEffect(readSection::line &currentLine, std::string name, std::string endName, std::string &output){
-    readSection::effect currentEffect;
+void Effect::addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output){
+    Effect::effect currentEffect;
     int nameLength;
     std::string namePrefix = name.substr(0,name.length()-1)+"=";
 
@@ -29,7 +30,7 @@ void readSection::getEffect(readSection::line &currentLine, std::string name, st
             openEnd = output.find(">", openStart);
             if (openEnd == std::string::npos) return;
             try {
-                currentEffect.value = std::stoi(output.substr(openStart + namePrefix.length(), openEnd - (openStart + namePrefix.length())));
+                currentEffect.value = std::stof(output.substr(openStart + namePrefix.length(), openEnd - (openStart + namePrefix.length())));
             } catch (std::exception) {
                 currentEffect.value = output.substr(openStart + namePrefix.length(), openEnd - (openStart + namePrefix.length()));
             }
@@ -70,11 +71,22 @@ void readSection::getEffect(readSection::line &currentLine, std::string name, st
         currentLine.effects.push_back(currentEffect);
     }
 }
-bool readSection::getNextSection(std::ifstream &iFile, readSection::section &currentSection){
+void Effect::onEffect(Section::line &currentLine, const std::string &effectName, const std::function<void(std::string)> func, const std::string params){
+    for(int i=0; i<currentLine.effects.size(); i++){
+        if (currentLine.effects[i].effectName==effectName){
+           func(params);
+        }
+    }
+}
+void Effect::onFontSize(std::string test){
+    std::cout << test << std::endl;
+}
+
+bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSection){
     std::string output;
     std::string column;
-    readSection::line currentLine;
-    readSection::effect currentEffect;
+    Section::line currentLine;
+    Effect::effect currentEffect;
 
     if (!iFile.is_open()){
         std::cerr << "getNextSection : Failed to open file\n";
@@ -108,12 +120,12 @@ bool readSection::getNextSection(std::ifstream &iFile, readSection::section &cur
         currentLine.english = column;
         std::getline(rowStream, column, ',');
 
-        readSection::ClearAllLineEffects(currentLine);
-        readSection::getEffect(currentLine, "<shakey>", "</shakey>", column);
-        readSection::getEffect(currentLine, "<fontSize>", "</fontSize>", column);
-        readSection::getEffect(currentLine, "<slow>", "</slow>", column);
-        readSection::getEffect(currentLine, "<color>", "</color>", column);
-        readSection::getEffect(currentLine, "<bold>", "</bold>", column);
+        Effect::ClearAllLineEffects(currentLine);
+        Effect::addEffect(currentLine, "<shakey>", "</shakey>", column);
+        Effect::addEffect(currentLine, "<fontSize>", "</fontSize>", column);
+        Effect::addEffect(currentLine, "<slow>", "</slow>", column);
+        Effect::addEffect(currentLine, "<color>", "</color>", column);
+        Effect::addEffect(currentLine, "<bold>", "</bold>", column);
         
         currentLine.translation = column;
         currentSection.lines.push_back(currentLine);
@@ -125,13 +137,13 @@ bool readSection::getNextSection(std::ifstream &iFile, readSection::section &cur
     }
     return true;
 }
-bool readSection::getToSection(std::ifstream &iFile, readSection::section &currentSection, const std::string &sectionName){
+bool Section::getToSection(std::ifstream &iFile, Section::section &currentSection, const std::string &sectionName){
     if (!iFile.is_open()){
         return false;
     }
     iFile.clear();
     while (currentSection.name != sectionName && iFile.good()){
-        if(!readSection::getNextSection(iFile, currentSection)){
+        if(!Section::getNextSection(iFile, currentSection)){
             return false;
         }
     }

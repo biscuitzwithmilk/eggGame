@@ -1,10 +1,12 @@
+#include <any>
 #include <fstream>
+#include <vector>
+#include <functional>
 #include <iostream>
-#include <ostream>
 #include <string>
 #include <variant>
 #include "windowManager.h"
-#include "csvutils.h"
+#include "getSections.h"
 #include "readLanguages.h"
 #include "jsonutils.h"
 #include "inputMap.h"
@@ -52,8 +54,8 @@ void onWindowMove(window &window1, PictureAsset asset){
 int main(){  
     ifstream iFile;
     iFile.open(jsonUtils::getJson("game/json/textSettings.json", "/CurrentLanguage/path"));
-    readSection::section currentSection;
-    readSection::getToSection(iFile, currentSection, jsonUtils::getJson("game/json/textSettings.json", "/CurrentSection"));
+    Section::section currentSection;
+    Section::getToSection(iFile, currentSection, jsonUtils::getJson("game/json/textSettings.json", "/CurrentSection"));
     int totLang;
     int currentLine=jsonUtils::getJson("game/json/textSettings.json", "/CurrentLine");
     int currentlanguage = jsonUtils::getJson("game/json/textSettings.json", "/CurrentLanguage/key");
@@ -81,46 +83,54 @@ int main(){
             }
             currentLine+=1;
             jsonUtils::editJson("game/json/textSettings.json", "/CurrentLine", currentLine);
-            cout << currentSection.lines[currentLine].charName+":\n"+currentSection.lines[currentLine].translation << endl;
-            
-            for (int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
-                // cout << currentSection.lines[currentLine].effects[i].effectName + ": " + currentSection.lines[currentLine].effects[i].effectedText << std::endl;
-                // cout << currentSection.lines[currentLine].effects[i].startPos << std::endl;
-            }
         }
         rlib::Vector2 currentSpecialPos = {180, 220};
         for(int n=0; n<currentSection.lines[currentLine].translation.size(); n++){
             const char *currentSpecialText = currentSection.lines[currentLine].translation.c_str();
-            
             int codepointSize = 0;
             int codepoint = rlib::GetCodepoint(&currentSpecialText[n], &codepointSize);
-            float fontSize = 20;
-            float defautFontSize = fontSize;
+            float currentFontSize = 20;
+            float defaultFontSize = currentFontSize;
+            rlib::Color defaultColor = rlib::BLUE; 
+            rlib::Color currentColor = defaultColor;
+            Effect::onEffect(currentSection.lines[currentLine], "fontSize", Effect::onFontSize, "f");
             for(int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
                 if (currentSection.lines[currentLine].effects[i].effectName=="fontSize"){
-
+                    
                     if(n >= currentSection.lines[currentLine].effects[i].startPos){
-                        if(auto test = std::get_if<int>(&currentSection.lines[currentLine].effects[i].value)){
-                            fontSize = std::get<int>(currentSection.lines[currentLine].effects[i].value);
+                        if(std::holds_alternative<float>(currentSection.lines[currentLine].effects[i].value)){
+                            currentFontSize = std::get<float>(currentSection.lines[currentLine].effects[i].value);
+                        }
+                        if(std::holds_alternative<int>(currentSection.lines[currentLine].effects[i].value)){
+                            currentFontSize = std::get<int>(currentSection.lines[currentLine].effects[i].value);
                         }
                     }
                     if(n >= currentSection.lines[currentLine].effects[i].endPos){
-                        fontSize = defautFontSize;
+                        currentFontSize = defaultFontSize;
                     }
                 }
-                else if (currentSection.lines[currentLine].effects[i].effectName=="color") {
+                else if(currentSection.lines[currentLine].effects[i].effectName=="color"){
                     if(n >= currentSection.lines[currentLine].effects[i].startPos){
-                        // cout << currentSection.lines[currentLine].effects[i].value<string>;
+                        
+                        if(std::holds_alternative<string>(currentSection.lines[currentLine].effects[i].value)){
+                            cout << std::get<string>(currentSection.lines[currentLine].effects[i].value) << endl;
+                            currentColor = rlib::RED;
+                        }
+                    }
+                    if(n >= currentSection.lines[currentLine].effects[i].endPos){
+                        currentColor = defaultColor;
                     }
                 }
             }
 
-            
-            rlib::DrawTextCodepoint(rlib::GetFontDefault(), codepoint, currentSpecialPos, fontSize, rlib::RED);
+            currentSpecialPos.y = 220.0f+defaultFontSize-currentFontSize/1.5f;
+            rlib::DrawTextCodepoint(rlib::GetFontDefault(), codepoint, currentSpecialPos, currentFontSize, currentColor);
             if(rlib::GetFontDefault().glyphs[rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint)].advanceX == 0){
-                currentSpecialPos.x+= (float)rlib::GetFontDefault().recs[rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint)].width * (fontSize / rlib::GetFontDefault().baseSize)+2.0f;
+                currentSpecialPos.x+= (float)rlib::GetFontDefault().recs[rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint)].width * (currentFontSize / rlib::GetFontDefault().baseSize)+2.0f;
+                currentSpecialPos.y=currentFontSize;
             }else{
-                currentSpecialPos.x+= (float)rlib::GetFontDefault().glyphs[rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint)].advanceX * (fontSize / rlib::GetFontDefault().baseSize)+2.0f;
+                currentSpecialPos.x+= (float)rlib::GetFontDefault().glyphs[rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint)].advanceX * (currentFontSize / rlib::GetFontDefault().baseSize)+2.0f;
+                currentSpecialPos.y= currentFontSize;
             }
             n += (codepointSize - 1);
         }
