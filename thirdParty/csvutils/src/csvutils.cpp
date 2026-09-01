@@ -1,6 +1,6 @@
+#include <exception>
 #include <iostream>
 #include <fstream>
-#include <ostream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -16,45 +16,53 @@ void readSection::getEffect(readSection::line &currentLine, std::string name, st
     std::string namePrefix = name.substr(0,name.length()-1)+"=";
 
     while(output.find(name.substr(1,name.length()-1))!= std::string::npos){
-
         if(output.find(endName)==std::string::npos){
             return;
         }
+
+        size_t openStart = std::string::npos;
+        size_t openEnd = std::string::npos;
         currentEffect.effectName=name.substr(1,name.length()-2);
-        if(output.find(namePrefix)==std::string::npos){
-            currentEffect.startPos=output.find(name);
-            nameLength = output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos).length()+1;
-            output=output.erase(currentEffect.startPos, name.length());
-            currentEffect.value=0;
-            currentEffect.endPos=output.find(endName);
-            output=output.erase(currentEffect.endPos, endName.length());
 
-            if(currentLine.effects.size()!=0){
-                for(int i=0; i<currentLine.effects.size(); i++){
-                    if(currentLine.effects[i].effectName!=currentEffect.effectName){
-                        currentLine.effects[i].endPos-=nameLength;
-                        currentLine.effects[i].startPos-=nameLength;
-                    }
-                }
+        if(output.find(namePrefix)!=std::string::npos){
+            openStart = output.find(namePrefix);
+            openEnd = output.find(">", openStart);
+            if (openEnd == std::string::npos) return;
+            try {
+                currentEffect.value = std::stoi(output.substr(openStart + namePrefix.length(), openEnd - (openStart + namePrefix.length())));
+            } catch (std::exception) {
+                currentEffect.value = output.substr(openStart + namePrefix.length(), openEnd - (openStart + namePrefix.length()));
             }
-        }
-        else {
-            currentEffect.startPos=output.find(namePrefix);
-            nameLength = output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos).length()+1;
-            output=output.erase(currentEffect.startPos, name.length());
-            std::cout << currentEffect.effectName << std::stoi(output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos))) << std::endl; 
-            currentEffect.value=std::stoi(output.substr(currentEffect.startPos, output.find(">", currentEffect.startPos))); 
-            output=output.erase(currentEffect.startPos, output.find(">", currentEffect.startPos)-currentEffect.startPos+1);
-            currentEffect.endPos=output.find(endName);
-            output=output.erase(currentEffect.endPos, endName.length());
+            
 
-            if(currentLine.effects.size()!=0){
-                for(int i=0; i<currentLine.effects.size(); i++){
-                    if(currentLine.effects[i].effectName!=currentEffect.effectName){
-                        currentLine.effects[i].endPos-=nameLength;
-                        currentLine.effects[i].startPos-=nameLength;
-                    }
-                }
+        } else {
+            openStart = output.find(name);
+            if (openStart == std::string::npos) return;
+            openEnd = openStart + name.length() - 1;
+            // currentEffect.value<int> = 0;
+        }
+        size_t openTagLen = openEnd - openStart + 1;
+        currentEffect.startPos = openStart;
+
+        // Erase opening tag
+        output.erase(openStart, openTagLen);
+
+        // Find and erase closing tag
+        size_t closeStart = output.find(endName);
+
+        currentEffect.endPos = closeStart;
+        size_t closeTagLen = endName.length();
+        output.erase(closeStart, closeTagLen);
+
+       // Correct positions of all existing effects based on relative layout
+        for (auto &eff : currentLine.effects) {
+            // Adjust startPos if it was after erased segments
+            if (eff.startPos > openStart) {
+                eff.startPos -= (eff.startPos > closeStart) ? (openTagLen + closeTagLen) : openTagLen;
+            }
+            // Adjust endPos if it was after erased segments
+            if (eff.endPos > openStart) {
+                eff.endPos -= (eff.endPos > closeStart) ? (openTagLen + closeTagLen) : openTagLen;
             }
         }
 
@@ -104,7 +112,8 @@ bool readSection::getNextSection(std::ifstream &iFile, readSection::section &cur
         readSection::getEffect(currentLine, "<shakey>", "</shakey>", column);
         readSection::getEffect(currentLine, "<fontSize>", "</fontSize>", column);
         readSection::getEffect(currentLine, "<slow>", "</slow>", column);
-        readSection::getEffect(currentLine, "<strong>", "</strong>", column);
+        readSection::getEffect(currentLine, "<color>", "</color>", column);
+        readSection::getEffect(currentLine, "<bold>", "</bold>", column);
         
         currentLine.translation = column;
         currentSection.lines.push_back(currentLine);

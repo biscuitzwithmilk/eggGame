@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <ostream>
+#include <string>
+#include <variant>
 #include "windowManager.h"
 #include "csvutils.h"
 #include "readLanguages.h"
@@ -82,8 +84,8 @@ int main(){
             cout << currentSection.lines[currentLine].charName+":\n"+currentSection.lines[currentLine].translation << endl;
             
             for (int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
-                cout << currentSection.lines[currentLine].effects[i].effectName + ": " + currentSection.lines[currentLine].effects[i].effectedText << std::endl;
-                cout << currentSection.lines[currentLine].effects[i].startPos << std::endl;
+                // cout << currentSection.lines[currentLine].effects[i].effectName + ": " + currentSection.lines[currentLine].effects[i].effectedText << std::endl;
+                // cout << currentSection.lines[currentLine].effects[i].startPos << std::endl;
             }
         }
         rlib::Vector2 currentSpecialPos = {180, 220};
@@ -98,10 +100,17 @@ int main(){
                 if (currentSection.lines[currentLine].effects[i].effectName=="fontSize"){
 
                     if(n >= currentSection.lines[currentLine].effects[i].startPos){
-                        fontSize = currentSection.lines[currentLine].effects[i].value;
+                        if(auto test = std::get_if<int>(&currentSection.lines[currentLine].effects[i].value)){
+                            fontSize = std::get<int>(currentSection.lines[currentLine].effects[i].value);
+                        }
                     }
                     if(n >= currentSection.lines[currentLine].effects[i].endPos){
                         fontSize = defautFontSize;
+                    }
+                }
+                else if (currentSection.lines[currentLine].effects[i].effectName=="color") {
+                    if(n >= currentSection.lines[currentLine].effects[i].startPos){
+                        // cout << currentSection.lines[currentLine].effects[i].value<string>;
                     }
                 }
             }

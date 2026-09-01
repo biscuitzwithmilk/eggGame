@@ -1,4 +1,5 @@
 #include "nlohmann/json.hpp"
+#include <fstream>
 using json = nlohmann::json;
 namespace jsonUtils{
     template <typename T>
