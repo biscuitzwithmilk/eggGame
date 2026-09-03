@@ -11,7 +11,7 @@
         "${workspaceFolder}/thirdParty/jsonutils/include",
         "${workspaceFolder}/thirdParty/csvutils/include",
         "${workspaceFolder}/thirdParty/readLanguages/include",
-        "${workspaceFolder}/game/scripts/include",
+        "${workspaceFolder}/thirdParty/csvutils/include",
         "${workspaceFolder}/build"
       ]
     }

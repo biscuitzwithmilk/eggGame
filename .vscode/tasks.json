@@ -12,7 +12,12 @@
                 "-I/${workspaceFolder}/thirdParty/jsonutils/include",
                 "-I/${workspaceFolder}/thirdParty/readLanguages/include",
                 "-I/${workspaceFolder}/thirdParty/csvutils/include",
+<<<<<<< HEAD
                 "-I/${workspaceFolder}/thirdParty/basicutils/include",
+=======
+                "-I/${workspaceFolder}/thirdParty/raylib-6.0/src",
+                "-std=c++26",
+>>>>>>> refs/remotes/origin/main
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
