@@ -58,8 +58,16 @@ int main(){
     Section::getToSection(iFile, currentSection, jsonUtils::getJson("game/json/textSettings.json", "/CurrentSection"));
     int totLang;
     int currentLine=jsonUtils::getJson("game/json/textSettings.json", "/CurrentLine");
+    int currentEffect=0;
     int currentlanguage = jsonUtils::getJson("game/json/textSettings.json", "/CurrentLanguage/key");
     window window1;
+    int codepointSize = 0;
+    int codepoint;
+    float currentFontSize;
+    float defaultFontSize;
+    rlib::Color defaultColor; 
+    rlib::Color currentColor;
+    rlib::Vector2 currentSpecialPos = {180, 220};
     rlib::SetConfigFlags(rlib::FLAG_BORDERLESS_WINDOWED_MODE | rlib::FLAG_VSYNC_HINT);
     rlib::SetTargetFPS(window1.targetFPS);
     rlib::InitWindow(window1.transform.scale.Width,window1.transform.scale.Height, "test game");
@@ -83,17 +91,22 @@ int main(){
             }
             currentLine+=1;
             jsonUtils::editJson("game/json/textSettings.json", "/CurrentLine", currentLine);
+            basicutils::Param fontSizeParams{1};
+            Effect::onEffect<int>(currentSection.lines[currentLine], 0, "fontSize", Effect::onFontSizeEffect, fontSizeParams);
+            basicutils::Param colorParams{"RED"};
+            Effect::onEffect<std::string>(currentSection.lines[currentLine], 0, "color", Effect::onColorEffect, colorParams);
+
         }
-        rlib::Vector2 currentSpecialPos = {180, 220};
-        for(int n=0; n<currentSection.lines[currentLine].translation.size(); n++){
+        
+        for(int n=0; n<currentSection.lines[currentLine].translation.size(); n+=codepointSize){
+            codepointSize=0;
             const char *currentSpecialText = currentSection.lines[currentLine].translation.c_str();
-            int codepointSize = 0;
-            int codepoint = rlib::GetCodepoint(&currentSpecialText[n], &codepointSize);
-            float currentFontSize = 20;
-            float defaultFontSize = currentFontSize;
-            rlib::Color defaultColor = rlib::BLUE; 
-            rlib::Color currentColor = defaultColor;
-            Effect::onEffect(currentSection.lines[currentLine], "fontSize", Effect::onFontSize, "f");
+            codepoint = rlib::GetCodepoint(&currentSpecialText[n], &codepointSize);
+            currentFontSize = 20;
+            defaultFontSize = currentFontSize;
+            defaultColor = rlib::BLUE; 
+            currentColor = defaultColor;
+            
             for(int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
                 if (currentSection.lines[currentLine].effects[i].effectName=="fontSize"){
                     
@@ -132,7 +145,6 @@ int main(){
                 currentSpecialPos.x+= (float)rlib::GetFontDefault().glyphs[rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint)].advanceX * (currentFontSize / rlib::GetFontDefault().baseSize)+2.0f;
                 currentSpecialPos.y= currentFontSize;
             }
-            n += (codepointSize - 1);
         }
         // rlib::DrawText(rlib::TextFormat(currentSection.lines[currentLine].charName.c_str()), 0, 0, 20, rlib::RED);
         // rlib::DrawText(rlib::TextFormat(currentSection.lines[currentLine].translation.c_str()), 0, 20, 20, rlib::RED);

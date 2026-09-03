@@ -12,6 +12,7 @@
                 "-I/${workspaceFolder}/thirdParty/jsonutils/include",
                 "-I/${workspaceFolder}/thirdParty/readLanguages/include",
                 "-I/${workspaceFolder}/thirdParty/csvutils/include",
+                "-I/${workspaceFolder}/thirdParty/basicutils/include",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"

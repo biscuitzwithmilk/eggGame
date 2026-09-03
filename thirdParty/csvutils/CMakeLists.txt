@@ -3,7 +3,7 @@ add_library(csvutils STATIC
     src/getSections.cpp
 )
 
-target_link_libraries(csvutils PUBLIC jsonutils)
+target_link_libraries(csvutils PUBLIC jsonutils basicutils)
 
 target_include_directories(csvutils PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include

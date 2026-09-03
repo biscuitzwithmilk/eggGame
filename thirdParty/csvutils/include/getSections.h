@@ -1,12 +1,14 @@
 #pragma once
-
-#include <any>
+#include <cstddef>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <variant>
 #include <functional>
-
+#include "basicutils.h"
+namespace rlib{
+    #include <raylib.h>
+};
 namespace Effect{
     struct effect{
         std::string effectName;
@@ -15,7 +17,6 @@ namespace Effect{
         int startPos;
         int endPos;
     };
-    
 };
 namespace Section{
     struct line{
@@ -36,6 +37,15 @@ namespace Section{
 namespace Effect{
     void ClearAllLineEffects(Section::line &currentLine);
     void addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output);
-    void onEffect(Section::line &currentLine, const std::string &effectName, const std::function<void(std::string)> func, const std::string params);
-    void onFontSize(std::string test);
+    template <typename T>
+    void onEffect(Section::line &currentLine, const int currentEffect, const std::string &effectName, const std::function<void(T)> func, const basicutils::Param params){
+        if(currentLine.effects.empty()){
+            return;
+        }
+        if (currentLine.effects[currentEffect].effectName==effectName){
+            func(params.as<T>());
+        }
+    }
+    void onFontSizeEffect(int test);
+    void onColorEffect(std::string test);
 };

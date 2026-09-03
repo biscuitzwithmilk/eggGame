@@ -4,7 +4,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <any>
 #include "getSections.h"
 #include "jsonutils.h"
 
@@ -71,17 +70,13 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
         currentLine.effects.push_back(currentEffect);
     }
 }
-void Effect::onEffect(Section::line &currentLine, const std::string &effectName, const std::function<void(std::string)> func, const std::string params){
-    for(int i=0; i<currentLine.effects.size(); i++){
-        if (currentLine.effects[i].effectName==effectName){
-           func(params);
-        }
-    }
-}
-void Effect::onFontSize(std::string test){
-    std::cout << test << std::endl;
-}
 
+void Effect::onFontSizeEffect(int test){
+    // std::cout << test << std::endl;
+}
+void Effect::onColorEffect(std::string test){
+    // std::cout << test << std::endl;
+}
 bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSection){
     std::string output;
     std::string column;

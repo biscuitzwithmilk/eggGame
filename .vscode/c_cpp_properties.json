@@ -5,12 +5,13 @@
       "compileCommands": "${workspaceFolder}/build/compile_commands.json",
       "compilerPath": "/usr/bin/g++",
       "intelliSenseMode": "linux-gcc-x64",
-      "cppStandard": "c++23",
+      "cppStandard": "c++26",
       "includePath": [
-        "${workspaceFolder}/game/scripts/include",
+        "${workspaceFolder}/thirdParty/basicutils/include",
         "${workspaceFolder}/thirdParty/jsonutils/include",
-        "${workspaceFolder}/thirdParty/readLanguages/include",
         "${workspaceFolder}/thirdParty/csvutils/include",
+        "${workspaceFolder}/thirdParty/readLanguages/include",
+        "${workspaceFolder}/game/scripts/include",
         "${workspaceFolder}/build"
       ]
     }
