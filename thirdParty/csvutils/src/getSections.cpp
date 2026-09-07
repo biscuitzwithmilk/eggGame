@@ -39,7 +39,6 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
             openStart = output.find(name);
             if (openStart == std::string::npos) return;
             openEnd = openStart + name.length() - 1;
-            // currentEffect.value<int> = 0;
         }
         size_t openTagLen = openEnd - openStart + 1;
         currentEffect.startPos = openStart;
@@ -69,13 +68,6 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
         
         currentLine.effects.push_back(currentEffect);
     }
-}
-
-void Effect::onFontSizeEffect(int test){
-    // std::cout << test << std::endl;
-}
-void Effect::onColorEffect(std::string test){
-    // std::cout << test << std::endl;
 }
 bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSection){
     std::string output;

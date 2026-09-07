@@ -6,4 +6,4 @@ add_executable(game_app ${GAME_SOURCES})
 
 target_include_directories(game_app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-target_link_libraries(game_app PRIVATE csvutils jsonutils readLanguages raylib GL m pthread dl rt X11)
+target_link_libraries(game_app PRIVATE csvutils jsonutils readLanguages raylib_static GL m pthread dl rt X11)

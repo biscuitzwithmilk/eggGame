@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <variant>
@@ -37,15 +38,21 @@ namespace Section{
 namespace Effect{
     void ClearAllLineEffects(Section::line &currentLine);
     void addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output);
-    template <typename T>
-    void onEffect(Section::line &currentLine, const int currentEffect, const std::string &effectName, const std::function<void(T)> func, const basicutils::Param params){
-        if(currentLine.effects.empty()){
-            return;
+    template<typename T>
+    void onEffect(Section::line &currentLine, int currentEffect, int currentPos,  std::string effectName, T &effectValue, basicutils::Param defaultValue){
+    if (currentLine.effects[currentEffect].effectName==effectName){
+        if(currentPos >= currentLine.effects[currentEffect].startPos){
+            if(std::holds_alternative<T>(currentLine.effects[currentEffect].value)){
+                effectValue = std::get<T>(currentLine.effects[currentEffect].value);
+                std::cout << effectValue << std::endl;
+            }else {
+                std::cout << "Effect : \n" << "effectName : "+effectName+"\n" << &"currentEffect : "[currentEffect];
+            }
+
         }
-        if (currentLine.effects[currentEffect].effectName==effectName){
-            func(params.as<T>());
+        else if(currentPos >= currentLine.effects[currentEffect].endPos){
+            effectValue = defaultValue.as<T>();
         }
     }
-    void onFontSizeEffect(int test);
-    void onColorEffect(std::string test);
+}
 };

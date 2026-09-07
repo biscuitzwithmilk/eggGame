@@ -31,7 +31,4 @@ namespace basicutils{
             return std::holds_alternative<T>(value);
         }
     };
-    struct loopValues{
-        int n{0};
-    };
 }
