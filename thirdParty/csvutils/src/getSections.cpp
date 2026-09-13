@@ -92,11 +92,8 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
         for (size_t i = 0; i < currentLine.effects.size(); ++i) {
             currentLine.effects[i].value.clear();
             if (currentLine.effects[i].startPos > static_cast<int>(openStart)) {
-                currentLine.effects[i].startPos -= (currentLine.effects[i].startPos > static_cast<int>(closeStart)) ? static_cast<int>(openTagLen + closeTagLen) : static_cast<int>(openTagLen);
-                currentLine.effects[i].value.reserve(openTagLen + closeTagLen + openDefLen);
-            }
-            if (currentLine.effects[i].endPos > static_cast<int>(openStart)) {
-                currentLine.effects[i].endPos -= (currentLine.effects[i].endPos > static_cast<int>(closeStart)) ? static_cast<int>(openTagLen + closeTagLen) : static_cast<int>(openTagLen);
+                currentLine.effects[i].startPos -= openTagLen+openDefLen;
+                currentLine.effects[i].endPos -= openTagLen+openDefLen;
                 currentLine.effects[i].value.reserve(openTagLen + closeTagLen + openDefLen);
             }
 
