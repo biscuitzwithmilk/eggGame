@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Launch game_app",
-            "type": "cppdbg",
+            "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/build/game/scripts/game_app",
             "args": [],

@@ -85,36 +85,28 @@ int main(){
             }
             getLang::changeLanguage(currentSection, currentlanguage);
             // Setup per-codepoint arrays (do not draw here)
-            basicutils::Param defaultFontSize {20.0f};
             currentSpecialPos.clear();
-            currentFontSize.clear();
-            currentColors.clear();
 
             const char *textPtr = currentSection.lines[currentLine].translation.c_str();
             size_t textLen = currentSection.lines[currentLine].translation.size();
             for(size_t n=0; n<textLen; n++){
-                float thisFontSize = defaultFontSize.as<float>();
-                rlib::Color thisColor = rlib::BLUE;
-
-                for(int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
-                    Effect::onEffect(currentSection.lines[currentLine], i, n, "fontSize", thisFontSize, defaultFontSize);
-                    if(currentSection.lines[currentLine].effects[i].effectName=="color"){
-                        if(n >= currentSection.lines[currentLine].effects[i].startPos){
-                            if(std::holds_alternative<string>(currentSection.lines[currentLine].effects[i].value)){
-                                thisColor = rlib::RED;
-                            }
-                        }
-                        if(n >= currentSection.lines[currentLine].effects[i].endPos){
-                            thisColor = rlib::BLUE;
-                        }
-                    }
-                }
-
-                currentFontSize.push_back(thisFontSize);
-                currentColors.push_back(thisColor);
-                rlib::Vector2 v = {0.0f, 220.0f + (defaultFontSize.as<float>() - thisFontSize) * 0.75f};
+                rlib::Vector2 v = {0.0f, 220.0f};
                 currentSpecialPos.push_back(v);
             }
+            if(jsonUtils::getJson("game/json/debug.json", "/leftClickDebug") == true){
+                std::cout << currentSection.lines[currentLine].key << ", ";
+                std::cout << currentSection.lines[currentLine].charName << ", ";
+                std::cout << currentSection.lines[currentLine].context << ", ";
+                std::cout << currentSection.lines[currentLine].english << ", ";
+                std::cout << currentSection.lines[currentLine].translation << "\n";
+                for(int i; i<=currentSection.lines[currentLine].effects.size();i++){
+                    std::cout << currentSection.lines[currentLine].effects[i].effectName << ", ";
+                    std::cout << currentSection.lines[currentLine].effects[i].effectedText << ", ";
+                    std::cout << currentSection.lines[currentLine].effects[i].startPos << ", ";
+                    std::cout << currentSection.lines[currentLine].effects[i].endPos << "\n";
+                }
+            }
+            
             
         }
         if(input::isLClickPressed()){
@@ -125,35 +117,28 @@ int main(){
             jsonUtils::editJson("game/json/textSettings.json", "/CurrentLine", currentLine);
 
             // Setup per-codepoint arrays (do not draw here)
-            basicutils::Param defaultFontSize {20.0f};
             currentSpecialPos.clear();
-            currentFontSize.clear();
-            currentColors.clear();
 
             const char *textPtr = currentSection.lines[currentLine].translation.c_str();
             size_t textLen = currentSection.lines[currentLine].translation.size();
             for(size_t n=0; n<textLen; n++){
-                float thisFontSize = defaultFontSize.as<float>();
-                rlib::Color thisColor = rlib::BLUE;
 
-                for(int i=0; i<currentSection.lines[currentLine].effects.size(); i++){
-                    Effect::onEffect(currentSection.lines[currentLine], i, n, "fontSize", thisFontSize, defaultFontSize);
-                    if(currentSection.lines[currentLine].effects[i].effectName=="color"){
-                        if(n >= currentSection.lines[currentLine].effects[i].startPos){
-                            if(std::holds_alternative<string>(currentSection.lines[currentLine].effects[i].value)){
-                                thisColor = rlib::RED;
-                            }
-                        }
-                        if(n >= currentSection.lines[currentLine].effects[i].endPos){
-                            thisColor = rlib::BLUE;
-                        }
-                    }
-                }
-
-                currentFontSize.push_back(thisFontSize);
-                currentColors.push_back(thisColor);
-                rlib::Vector2 v = {0.0f, 220.0f + (defaultFontSize.as<float>() - thisFontSize) * 0.75f};
+                rlib::Vector2 v = {0.0f, 220.0f};
                 currentSpecialPos.push_back(v);
+            }
+            if(jsonUtils::getJson("game/json/debug.json", "/leftClickDebug") == true){
+                std::cout << currentSection.lines[currentLine].key << ", ";
+                std::cout << currentSection.lines[currentLine].charName << ", ";
+                std::cout << currentSection.lines[currentLine].context << ", ";
+                std::cout << currentSection.lines[currentLine].english << ", ";
+                std::cout << currentSection.lines[currentLine].translation << "\n";
+                std::cout << currentSection.lines[currentLine].effects.size() << "\n";
+                for(int i=0; i<currentSection.lines[currentLine].effects.size();i++){
+                    std::cout << currentSection.lines[currentLine].effects[i].effectName << ", ";
+                    std::cout << currentSection.lines[currentLine].effects[i].effectedText << ", ";
+                    std::cout << currentSection.lines[currentLine].effects[i].startPos << ", ";
+                    std::cout << currentSection.lines[currentLine].effects[i].endPos << "\n";
+                }
             }
         }
 
@@ -161,31 +146,37 @@ int main(){
         size_t textLen = currentSection.lines[currentLine].translation.size();
         int cpIndex = 0;
         float xPos = 180.0f;
-        for(size_t n=0; n<textLen; ){
-            codepointSize = 0;
-            codepoint = rlib::GetCodepoint(&textPtr[n], &codepointSize);
-            if(codepointSize <= 0) break;
 
-            // guard against mismatched lengths
-            if(cpIndex >= (int)currentFontSize.size() || cpIndex >= (int)currentSpecialPos.size() || cpIndex >= (int)currentColors.size()) break;
+        
+        // }
+        // for(size_t n=0; n<textLen; ){
+            
+        //     // codepointSize = 0;
+        //     // codepoint = rlib::GetCodepoint(&textPtr[n], &codepointSize);
+        //     // if(codepointSize <= 0) break;
 
-            // set position for this glyph, draw, then advance xPos for the next glyph
-            currentSpecialPos[cpIndex].x = xPos;
-            rlib::DrawTextCodepoint(rlib::GetFontDefault(), codepoint, currentSpecialPos[cpIndex], currentFontSize[cpIndex], currentColors[cpIndex]);
+        //     // // guard against mismatched lengths
+        //     // // if(cpIndex >= (int)currentFontSize.size() || cpIndex >= (int)currentSpecialPos.size() || cpIndex >= (int)currentColors.size()) break;
 
-            int glyphIndex = rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint);
-            float advance = 0.0f;
-            if(rlib::GetFontDefault().glyphs[glyphIndex].advanceX == 0){
-                advance = (float)rlib::GetFontDefault().recs[glyphIndex].width * (currentFontSize[cpIndex] / rlib::GetFontDefault().baseSize) + 2.0f;
-            }else{
-                advance = (float)rlib::GetFontDefault().glyphs[glyphIndex].advanceX * (currentFontSize[cpIndex] / rlib::GetFontDefault().baseSize) + 2.0f;
-            }
+        //     // // set position for this glyph, draw, then advance xPos for the next glyph
+        //     // currentSpecialPos[cpIndex].x = xPos;
+        //     // rlib::DrawTextCodepoint(rlib::GetFontDefault(), codepoint, currentSpecialPos[cpIndex], currentFontSize[cpIndex], rlib::RED);
 
-            xPos += advance;
+        //     // int glyphIndex = rlib::GetGlyphIndex(rlib::GetFontDefault(), codepoint);
+        //     // float advance = 0.0f;
+        //     // if(rlib::GetFontDefault().glyphs[glyphIndex].advanceX == 0){
+        //     //     advance = (float)rlib::GetFontDefault().recs[glyphIndex].width * (currentFontSize[cpIndex] / rlib::GetFontDefault().baseSize) + 2.0f;
+        //     // }else{
+        //     //     advance = (float)rlib::GetFontDefault().glyphs[glyphIndex].advanceX * (currentFontSize[cpIndex] / rlib::GetFontDefault().baseSize) + 2.0f;
+        //     // }
 
-            n += (size_t)codepointSize;
-            cpIndex++;
-        }
+        //     // xPos += advance;
+
+        //     // n += (size_t)codepointSize;
+        //     // cpIndex++;
+        // }
+
+        
         // rlib::DrawText(rlib::TextFormat(currentSection.lines[currentLine].charName.c_str()), 0, 0, 20, rlib::RED);
         // rlib::DrawText(rlib::TextFormat(currentSection.lines[currentLine].translation.c_str()), 0, 20, 20, rlib::RED);
         rlib::EndDrawing();

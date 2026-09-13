@@ -13,7 +13,11 @@ using ParamValue = std::variant<
     std::vector<std::string>
 >;
 namespace basicutils{
-
+    struct color{
+        int red;
+        int green;
+        int blue;
+    };
     struct Param {
         ParamValue value;
     
@@ -31,4 +35,8 @@ namespace basicutils{
             return std::holds_alternative<T>(value);
         }
     };
+    int getRGBChannelFromHex(std::string hex, std::string rgbChannel);
+    void getRGBColorFromHex(color currentColor, std::string hex);
+
+
 }

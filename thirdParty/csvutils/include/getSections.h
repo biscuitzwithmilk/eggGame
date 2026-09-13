@@ -14,7 +14,8 @@ namespace Effect{
     struct effect{
         std::string effectName;
         std::string effectedText;
-        std::variant<int, float, std::string> value;
+        std::vector<std::variant<int, float, std::string>> value;
+        std::variant<int, float, std::string> defaultValue;
         int startPos;
         int endPos;
     };
@@ -44,11 +45,7 @@ namespace Effect{
         if(currentPos >= currentLine.effects[currentEffect].startPos){
             if(std::holds_alternative<T>(currentLine.effects[currentEffect].value)){
                 effectValue = std::get<T>(currentLine.effects[currentEffect].value);
-                std::cout << effectValue << std::endl;
-            }else {
-                std::cout << "Effect : \n" << "effectName : "+effectName+"\n" << &"currentEffect : "[currentEffect];
             }
-
         }
         else if(currentPos >= currentLine.effects[currentEffect].endPos){
             effectValue = defaultValue.as<T>();
