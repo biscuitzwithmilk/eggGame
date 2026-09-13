@@ -1,10 +1,10 @@
 //section1
 Key,Char_Name,Context,English,Español
-egg.dialogue1,Egg,testing,I'm happy!,Estoy tan feliz!
-theMan.dialogue1,Man,testing,Are you...though?,Pero lo estas <fontSize=30>realmente?</fontSize>
-egg.dialogue2,Egg,testing,I think so...,Eso creo...
-theMan.dialogue2,Man,testing,So you're not sure?,Entonces <fontSize=40>no</fontSize> estas seguro?
-egg.dialogue3,Egg,testing,I never am.,<fontSize=12>Nunca lo estoy.</fontSize>
+egg.dialogue1,Egg,testing,I'm happy!,Estoy feliz!
+theMan.dialogue1,Man,testing,<fontSize_default=15>Are you...<fontSize=40>though</fontSize>?,<fontSize_default=15>Lo estas...?<fontSize=40.0>though</fontSize>?
+egg.dialogue2,Egg,testing,<color="RED">I think so...</color>,<color="RED">I think so...</color>
+theMan.dialogue2,Man,testing,So you're <fontSize=30>not</fontSize> sure?,So you're <fontSize=30>not</fontSize> sure?
+egg.dialogue3,Egg,testing,<color="RED"><slow=10><fontSize=16>I never am.</fontSize></slow></color>,<color="RED"><slow=10><fontSize=16>I never am.</fontSize></slow></color>
 //endsection1
 //section2
 Key,Char_Name,Context,English,Español

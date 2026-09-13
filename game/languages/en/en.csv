@@ -1,10 +1,10 @@
 //section1
 Key,Char_Name,Context,English,English
-egg.dialogue1,Egg,testing,I'm happy!,I'm happy!
-theMan.dialogue1,Man,testing,Are you...though?,<fontSize_default=15>Are you...<fontSize=40.0>though</fontSize>?
-egg.dialogue2,Egg,testing,I think so...,<color="RED">I think so...</color>
-theMan.dialogue2,Man,testing,So you're not sure?,So you're <fontSize=30.0>not</fontSize> sure?
-egg.dialogue3,Egg,testing,I never am.,<color_default="BLUE">Bro<color="RED"><slow=10><fontSize=16>I never am.</fontSize></slow></color> j
+egg.dialogue1,Egg,testing,<fontSize_default=30>I'm happy!,<fontSize_default=30>I'm happy!
+theMan.dialogue1,Man,testing,<fontSize_default=20>Are you...? <fontSize=40>though...?</fontSize>,<fontSize_default=20>Are you...? <fontSize=40>though...?</fontSize>
+egg.dialogue2,Egg,testing,<fontSize_default=24>I think so...,<fontSize_default=24>I think so...
+theMan.dialogue2,Man,testing,So you're <color="RED"><fontSize=40>not</fontSize></color> sure?,So you're <color="RED"><fontSize=40>not</fontSize></color> sure?
+egg.dialogue3,Egg,testing,<slow_default=10><fontSize_default=16>I never am.,<slow_default=10><fontSize_default=16>I never am.
 //endsection1
 //section2
 Key,Char_Name,Context,English,English

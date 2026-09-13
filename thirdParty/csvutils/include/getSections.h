@@ -13,7 +13,6 @@ namespace rlib{
 namespace Effect{
     struct effect{
         std::string effectName;
-        std::string effectedText;
         std::vector<std::variant<int, float, std::string>> value;
         std::variant<int, float, std::string> defaultValue;
         int startPos;

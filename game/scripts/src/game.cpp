@@ -99,9 +99,8 @@ int main(){
                 std::cout << currentSection.lines[currentLine].context << ", ";
                 std::cout << currentSection.lines[currentLine].english << ", ";
                 std::cout << currentSection.lines[currentLine].translation << "\n";
-                for(int i; i<=currentSection.lines[currentLine].effects.size();i++){
+                for(int i=0; i<currentSection.lines[currentLine].effects.size();i++){
                     std::cout << currentSection.lines[currentLine].effects[i].effectName << ", ";
-                    std::cout << currentSection.lines[currentLine].effects[i].effectedText << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].startPos << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].endPos << "\n";
                 }
@@ -132,10 +131,8 @@ int main(){
                 std::cout << currentSection.lines[currentLine].context << ", ";
                 std::cout << currentSection.lines[currentLine].english << ", ";
                 std::cout << currentSection.lines[currentLine].translation << "\n";
-                std::cout << currentSection.lines[currentLine].effects.size() << "\n";
                 for(int i=0; i<currentSection.lines[currentLine].effects.size();i++){
                     std::cout << currentSection.lines[currentLine].effects[i].effectName << ", ";
-                    std::cout << currentSection.lines[currentLine].effects[i].effectedText << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].startPos << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].endPos << "\n";
                 }

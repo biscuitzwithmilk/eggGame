@@ -24,7 +24,7 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
     std::variant<int, float, std::string> currentValue;
 
     while (output.find(tagName) != std::string::npos) {
-        if (output.find(endName) == std::string::npos) {
+        if (output.find(endName) == std::string::npos && output.find(defaultPrefix) == std::string::npos) {
             return;
         }
 
@@ -167,12 +167,14 @@ bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSect
         }
         currentSection.lines.push_back(currentLine);
     };
-    for(int currentLine=0; currentLine<currentSection.lines.size(); currentLine++){
-        for(int effect=0; effect<currentSection.lines[currentLine].effects.size();effect++){
-            std::cout << "effect : \n" << currentSection.lines[currentLine].translation << ", ";
-            std::cout << currentSection.lines[currentLine].effects[effect].effectName << ", ";
-            std::cout << currentSection.lines[currentLine].effects[effect].startPos << ", ";
-            std::cout << currentSection.lines[currentLine].effects[effect].endPos << "\n";
+    if(jsonUtils::getJson("game/json/debug.json", "/nextSectionDebug") == true){
+        for(int currentLine=0; currentLine<currentSection.lines.size(); currentLine++){
+            for(int effect=0; effect<currentSection.lines[currentLine].effects.size();effect++){
+                std::cout << "effect : \n" << currentSection.lines[currentLine].translation << ", ";
+                std::cout << currentSection.lines[currentLine].effects[effect].effectName << ", ";
+                std::cout << currentSection.lines[currentLine].effects[effect].startPos << ", ";
+                std::cout << currentSection.lines[currentLine].effects[effect].endPos << "\n";
+            }
         }
     }
 
