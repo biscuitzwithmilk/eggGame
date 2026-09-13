@@ -1,11 +1,8 @@
 #pragma once
-#include <cstddef>
 #include <fstream>
-#include <iostream>
 #include <string>
 #include <vector>
 #include <variant>
-#include <functional>
 #include "basicutils.h"
 namespace rlib{
     #include <raylib.h>

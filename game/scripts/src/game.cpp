@@ -1,10 +1,7 @@
-#include <any>
 #include <fstream>
 #include <vector>
-#include <functional>
 #include <iostream>
 #include <string>
-#include <variant>
 #include "windowManager.h"
 #include "getSections.h"
 #include "readLanguages.h"
