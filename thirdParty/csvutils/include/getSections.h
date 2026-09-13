@@ -34,7 +34,7 @@ namespace Section{
 };
 namespace Effect{
     void ClearAllLineEffects(Section::line &currentLine);
-    void addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output);
+    void addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output, std::variant<int, float, std::string> defaultValue=0);
     template<typename T>
     void onEffect(Section::line &currentLine, int currentEffect, int currentPos,  std::string effectName, T &effectValue, basicutils::Param defaultValue){
     if (currentLine.effects[currentEffect].effectName==effectName){

@@ -1,6 +1,6 @@
 {
-    "nextSectionDebug" : false,
-    "leftClickDebug" : true
+    "nextSectionDebug" : true,
+    "leftClickDebug" : false
 
 
 }

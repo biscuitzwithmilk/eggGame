@@ -11,7 +11,7 @@
 void Effect::ClearAllLineEffects(Section::line &currentLine){
     currentLine.effects.clear();
 }
-void Effect::addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output){
+void Effect::addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output, std::variant<int, float, std::string> defaultValue){
     if (name.empty() || endName.empty() || output.empty()) {
         return;
     }
@@ -21,6 +21,7 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
     std::string namePrefix = name.substr(0, name.length() - 1) + "=";
     std::string defaultPrefix = name.substr(0, name.length() - 1) + "_default=";
     std::variant<int, float, std::string> currentValue;
+
 
     while (output.find(tagName) != std::string::npos) {
         if (output.find(endName) == std::string::npos && output.find(defaultPrefix) == std::string::npos) {
@@ -36,6 +37,7 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
         currentEffect.value.clear();
 
         size_t defaultPos = output.find(defaultPrefix);
+        //find and set default position
         if (defaultPos != std::string::npos) {
             openDefStart = defaultPos;
             openDefEnd = output.find(">", openDefStart);
@@ -53,6 +55,8 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
         }
 
         size_t valuePos = output.find(namePrefix);
+        currentEffect.defaultValue=defaultValue;
+        // find effect if it has value 
         if (valuePos != std::string::npos) {
             openStart = valuePos;
             openEnd = output.find(">", openStart);
@@ -65,9 +69,17 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
             } catch (std::exception) {
                 currentValue = valueText;
             }
-        } else {
+        } 
+        // find effect if it has no value 
+        else {
             openStart = output.find(name);
+            //happens when all that's found in the line is the default
             if (openStart == std::string::npos) {
+                currentEffect.startPos=0;
+                currentEffect.endPos=0;
+                currentEffect.effectName=defaultPrefix.substr(1,defaultPrefix.size()-2);
+                currentEffect.value.push_back(currentEffect.defaultValue);
+                currentLine.effects.push_back(currentEffect);
                 return;
             }
             openEnd = openStart + name.length() - 1;
@@ -149,11 +161,11 @@ bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSect
         currentLine.english = column;
         std::getline(rowStream, column, ',');
         Effect::ClearAllLineEffects(currentLine);
-        Effect::addEffect(currentLine, "<shakey>", "</shakey>", column);
-        Effect::addEffect(currentLine, "<fontSize>", "</fontSize>", column);
-        Effect::addEffect(currentLine, "<slow>", "</slow>", column);
-        Effect::addEffect(currentLine, "<color>", "</color>", column);
-        Effect::addEffect(currentLine, "<bold>", "</bold>", column);
+        Effect::addEffect(currentLine, "<shakey>", "</shakey>", column, 18.0f);
+        Effect::addEffect(currentLine, "<fontSize>", "</fontSize>", column, 20.0f);
+        Effect::addEffect(currentLine, "<slow>", "</slow>", column, 2);
+        Effect::addEffect(currentLine, "<color>", "</color>", column, "RED");
+        Effect::addEffect(currentLine, "<bold>", "</bold>", column, 1);
         
         currentLine.translation = column;
         if(jsonUtils::getJson("game/json/debug.json", "/nextSectionDebug") == true){
@@ -172,7 +184,10 @@ bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSect
                 std::cout << "effect : \n" << currentSection.lines[currentLine].translation << ", ";
                 std::cout << currentSection.lines[currentLine].effects[effect].effectName << ", ";
                 std::cout << currentSection.lines[currentLine].effects[effect].startPos << ", ";
-                std::cout << currentSection.lines[currentLine].effects[effect].endPos << "\n";
+                std::cout << currentSection.lines[currentLine].effects[effect].endPos << ", ";
+                std::cout << "int : " << std::holds_alternative<int>(currentSection.lines[currentLine].effects[effect].defaultValue) << ", ";
+                std::cout << "float : " << std::holds_alternative<float>(currentSection.lines[currentLine].effects[effect].defaultValue) << ", ";
+                std::cout << "string : " << std::holds_alternative<std::string>(currentSection.lines[currentLine].effects[effect].defaultValue) << "\n";
             }
         }
     }

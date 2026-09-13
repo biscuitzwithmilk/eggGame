@@ -5,6 +5,7 @@ theMan.dialogue1,Man,testing,<fontSize_default=20>Are you...? <fontSize=40>thoug
 egg.dialogue2,Egg,testing,<fontSize_default=24>I think so...,<fontSize_default=24>I think so...
 theMan.dialogue2,Man,testing,So you're <color="RED"><fontSize=40>not</fontSize></color> sure?,So you're <color="RED"><fontSize=40>not</fontSize></color> sure?
 egg.dialogue3,Egg,testing,<slow_default=10><fontSize_default=16>I never am.,<slow_default=10><fontSize_default=16>I never am.
+joel.dialogue1,Joel,testing,This is a test,This is a test
 //endsection1
 //section2
 Key,Char_Name,Context,English,English
