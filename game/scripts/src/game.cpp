@@ -97,9 +97,22 @@ int main(){
                 std::cout << currentSection.lines[currentLine].english << ", ";
                 std::cout << currentSection.lines[currentLine].translation << "\n";
                 for(int i=0; i<currentSection.lines[currentLine].effects.size();i++){
+                    std::cout << "effects : \n";
                     std::cout << currentSection.lines[currentLine].effects[i].effectName << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].startPos << ", ";
-                    std::cout << currentSection.lines[currentLine].effects[i].endPos << "\n";
+                    std::cout << currentSection.lines[currentLine].effects[i].endPos << ", ";
+                    if(std::holds_alternative<int>(currentSection.lines[currentLine].effects[i].defaultValue)){
+                        std::cout << std::get<int>(currentSection.lines[currentLine].effects[i].defaultValue) << ", ";
+                    }
+                    if (std::holds_alternative<float>(currentSection.lines[currentLine].effects[i].defaultValue)) {
+                    
+                        std::cout << std::get<float>(currentSection.lines[currentLine].effects[i].defaultValue) << ", ";
+                    }
+                    if (std::holds_alternative<std::string>(currentSection.lines[currentLine].effects[i].defaultValue)) {
+                    
+                        std::cout << std::get<std::string>(currentSection.lines[currentLine].effects[i].defaultValue);
+                    }
+                    std::cout << "\n";
                 }
             }
             
@@ -129,9 +142,23 @@ int main(){
                 std::cout << currentSection.lines[currentLine].english << ", ";
                 std::cout << currentSection.lines[currentLine].translation << "\n";
                 for(int i=0; i<currentSection.lines[currentLine].effects.size();i++){
+                    std::cout << "effects : \n";
                     std::cout << currentSection.lines[currentLine].effects[i].effectName << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].startPos << ", ";
-                    std::cout << currentSection.lines[currentLine].effects[i].endPos << "\n";
+                    std::cout << currentSection.lines[currentLine].effects[i].endPos << ", ";
+                    if(std::holds_alternative<int>(currentSection.lines[currentLine].effects[i].defaultValue)){
+                        std::cout << std::get<int>(currentSection.lines[currentLine].effects[i].defaultValue) << ", ";
+                    }
+                    if (std::holds_alternative<float>(currentSection.lines[currentLine].effects[i].defaultValue)) {
+                    
+                        std::cout << std::get<float>(currentSection.lines[currentLine].effects[i].defaultValue) << ", ";
+                    }
+                    if (std::holds_alternative<std::string>(currentSection.lines[currentLine].effects[i].defaultValue)) {
+                    
+                        std::cout << std::get<std::string>(currentSection.lines[currentLine].effects[i].defaultValue);
+                    }
+                    std::cout << "\n";
+
                 }
             }
         }
