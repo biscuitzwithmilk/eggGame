@@ -4,4 +4,5 @@ game/json/textSettings.json
 game/json/images.json
 game/json/volumeSettings.json
 game/json/debug.json
+game/json/characters.json
 build

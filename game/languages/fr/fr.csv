@@ -5,6 +5,7 @@ theMan.dialogue1,Man,testing,Are you...though?,Mais l'es tu vraiment?
 egg.dialogue2,Egg,testing,I think so...,Je crois...
 theMan.dialogue2,Man,testing,So you're not sure?,Alors tu n'est pas sûr?
 egg.dialogue3,Egg,testing,I never am.,Je le suis jamais.
+joel.dialogue1,Joel,testing,This is a test,Ceci est un test
 //endsection1
 //section2
 Key,Char_Name,Context,English,Français

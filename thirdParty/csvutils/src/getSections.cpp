@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <exception>
 #include <iostream>
 #include <fstream>
@@ -21,6 +22,7 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
     std::string namePrefix = name.substr(0, name.length() - 1) + "=";
     std::string defaultPrefix = name.substr(0, name.length() - 1) + "_default=";
     std::variant<int, float, std::string> currentValue;
+    std::vector<std::string> characterList = (jsonUtils::getJson("game/json/characters.json", "/characterList").get<std::vector<std::string>>());
 
 
     while (output.find(tagName) != std::string::npos) {
@@ -52,6 +54,17 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
                 currentEffect.defaultValue = defaultValueText;
             }
             output.erase(openDefStart, openDefLen);
+        }
+        else if(std::find(characterList.begin(), characterList.end(), currentLine.charName)!=characterList.end()){
+            const std::string key="/"+currentLine.charName+"/"+defaultPrefix.substr(1,defaultPrefix.length()-2);
+            const auto jsonValue = jsonUtils::getJson("game/json/characters.json", key);
+            if (jsonValue.is_number_integer()) {
+                currentEffect.defaultValue = jsonValue.get<int>();
+            } else if (jsonValue.is_number_float()) {
+                currentEffect.defaultValue = jsonValue.get<float>();
+            } else if (jsonValue.is_string()) {
+                currentEffect.defaultValue = jsonValue.get<std::string>();
+            }
         }
         else {
             currentEffect.defaultValue=defaultValue;
