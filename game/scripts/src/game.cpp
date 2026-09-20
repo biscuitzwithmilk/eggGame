@@ -1,4 +1,5 @@
 #include <fstream>
+#include <iomanip>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -121,16 +122,17 @@ int main(){
                     std::cout << currentSection.lines[currentLine].effects[i].effectName << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].startPos << ", ";
                     std::cout << currentSection.lines[currentLine].effects[i].endPos << ", ";
-                    if(std::holds_alternative<int>(currentSection.lines[currentLine].effects[i].defaultValue)){
-                        std::cout << std::get<int>(currentSection.lines[currentLine].effects[i].defaultValue) << ", ";
+                    if(currentSection.lines[currentLine].effects[i].defaultValue.is<int>()){
+                        std::cout << "int : " << currentSection.lines[currentLine].effects[i].defaultValue.as<int>() << ", ";
                     }
-                    if (std::holds_alternative<float>(currentSection.lines[currentLine].effects[i].defaultValue)) {
-                    
-                        std::cout << std::get<float>(currentSection.lines[currentLine].effects[i].defaultValue) << ", ";
+                    else if(currentSection.lines[currentLine].effects[i].defaultValue.is<float>()){
+                        std::cout << "float : " << std::setprecision(30) << currentSection.lines[currentLine].effects[i].defaultValue.as<float>() << ", ";
                     }
-                    if (std::holds_alternative<std::string>(currentSection.lines[currentLine].effects[i].defaultValue)) {
-                    
-                        std::cout << std::get<std::string>(currentSection.lines[currentLine].effects[i].defaultValue);
+                    else if(currentSection.lines[currentLine].effects[i].defaultValue.is<double>()){
+                        std::cout << "double : " << std::setprecision(30)<< currentSection.lines[currentLine].effects[i].defaultValue.as<double>() << ", ";
+                    }
+                    else if(currentSection.lines[currentLine].effects[i].defaultValue.is<std::string>()){
+                        std::cout << "string : " << currentSection.lines[currentLine].effects[i].defaultValue.as<std::string>() << ", ";
                     }
                     std::cout << "\n";
 

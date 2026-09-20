@@ -1,9 +1,11 @@
 #include <algorithm>
+#include <cctype>
 #include <exception>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <variant>
 #include <vector>
 #include "getSections.h"
@@ -12,22 +14,25 @@
 void Effect::ClearAllLineEffects(Section::line &currentLine){
     currentLine.effects.clear();
 }
-void Effect::addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output, std::variant<int, float, std::string> defaultValue){
+void Effect::addEffect(Section::line &currentLine, const std::string &name, const std::string &endName, std::string &output){
     if (name.empty() || endName.empty() || output.empty()) {
         return;
     }
 
-    Effect::effect currentEffect;
-    std::string tagName = name.substr(1, name.length() - 2);
-    std::string namePrefix = name.substr(0, name.length() - 1) + "=";
-    std::string defaultPrefix = name.substr(0, name.length() - 1) + "_default=";
-    std::variant<int, float, std::string> currentValue;
+    std::string working = output;
+    std::string_view nameView = name;
+    std::string_view tagName = nameView.substr(1, name.length() - 2);
+
+    std::string namePrefix = std::format("{}=", nameView.substr(0, name.length() - 1));
+    std::string defaultPrefix = std::format("{}_default=", nameView.substr(0, name.length() - 1));
+    std::string_view namePrefixView = namePrefix;
+    std::string_view defaultPrefixView = defaultPrefix;
+    basicutils::Param currentValue;
     std::vector<std::string> characterList = (jsonUtils::getJson("game/json/characters.json", "/characterList").get<std::vector<std::string>>());
 
-
-    while (output.find(tagName) != std::string::npos) {
-        if (output.find(endName) == std::string::npos && output.find(defaultPrefix) == std::string::npos) {
-            return;
+    while (working.find(tagName) != std::string::npos) {
+        if (working.find(endName) == std::string::npos && working.find(defaultPrefixView) == std::string::npos) {
+            break;
         }
 
         size_t openStart = std::string::npos;
@@ -35,65 +40,88 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
         size_t openDefStart = std::string::npos;
         size_t openDefEnd = std::string::npos;
         size_t openDefLen = 0;
-        currentEffect.effectName = tagName;
+        Effect::effect currentEffect;
+        currentEffect.effectName = std::string(tagName);
         currentEffect.value.clear();
 
-        size_t defaultPos = output.find(defaultPrefix);
-        //find and set default position
+        size_t defaultPos = working.find(defaultPrefixView);
         if (defaultPos != std::string::npos) {
             openDefStart = defaultPos;
-            openDefEnd = output.find(">", openDefStart);
+            openDefEnd = working.find(">", openDefStart);
             if (openDefEnd == std::string::npos) {
-                return;
+                break;
             }
             openDefLen = openDefEnd - openDefStart + 1;
-            std::string defaultValueText = output.substr(openDefStart + defaultPrefix.length(), openDefEnd - (openDefStart + defaultPrefix.length()));
+            std::string defaultValueText = working.substr(openDefStart + defaultPrefixView.length(), openDefEnd - (openDefStart + defaultPrefixView.length()));
             try {
-                currentEffect.defaultValue = std::stof(defaultValueText);
+                if(defaultValueText.find(".")==std::string::npos){
+                    currentEffect.defaultValue.value = std::stoi(defaultValueText);
+                }
+                else if(defaultValueText.find("f")!=std::string::npos){
+                    currentEffect.defaultValue.value = std::stof(defaultValueText);
+                }
+                else{
+                    currentEffect.defaultValue.value = std::stod(defaultValueText);
+                }
             } catch (std::exception) {
-                currentEffect.defaultValue = defaultValueText;
+                currentEffect.defaultValue.value = defaultValueText;
             }
-            output.erase(openDefStart, openDefLen);
+            working.erase(openDefStart, openDefLen);
         }
         else if(std::find(characterList.begin(), characterList.end(), currentLine.charName)!=characterList.end()){
-            const std::string key="/"+currentLine.charName+"/"+defaultPrefix.substr(1,defaultPrefix.length()-2);
-            const auto jsonValue = jsonUtils::getJson("game/json/characters.json", key);
+            const std::string key="/"+currentLine.charName+"/"+std::string(defaultPrefixView.substr(1, defaultPrefixView.length()-2));
+            const json jsonValue = jsonUtils::getJson("game/json/characters.json", key);
             if (jsonValue.is_number_integer()) {
-                currentEffect.defaultValue = jsonValue.get<int>();
+                currentEffect.defaultValue.value = jsonValue.get<int>();
             } else if (jsonValue.is_number_float()) {
-                currentEffect.defaultValue = jsonValue.get<float>();
+                currentEffect.defaultValue.value = jsonValue.get<float>();
             } else if (jsonValue.is_string()) {
-                currentEffect.defaultValue = jsonValue.get<std::string>();
+                currentEffect.defaultValue.value = jsonValue.get<std::string>();
             }
         }
         else {
-            currentEffect.defaultValue=defaultValue;
+            const std::string key="/DialogueEffects/"+std::string(defaultPrefixView.substr(1, defaultPrefixView.length()-2));
+            const json jsonValue = jsonUtils::getJson("game/json/textSettings.json", key);
+            if (jsonValue.is_number_integer()) {
+                currentEffect.defaultValue.value = jsonValue.get<int>();
+            } else if (jsonValue.is_number_float()) {
+                currentEffect.defaultValue.value = jsonValue.get<float>();
+            } else if (jsonValue.is_string()) {
+                currentEffect.defaultValue.value = jsonValue.get<std::string>();
+            }
         }
-        size_t valuePos = output.find(namePrefix);
-        // find effect if it has value 
+
+        size_t valuePos = working.find(namePrefixView);
         if (valuePos != std::string::npos) {
             openStart = valuePos;
-            openEnd = output.find(">", openStart);
+            openEnd = working.find(">", openStart);
             if (openEnd == std::string::npos) {
-                return;
+                break;
             }
-            std::string valueText = output.substr(openStart + namePrefix.length(), openEnd - (openStart + namePrefix.length()));
+            std::string valueText = working.substr(openStart + namePrefixView.length(), openEnd - (openStart + namePrefixView.length()));
             try {
-                currentValue = std::stof(valueText);
+                if(valueText.find(".")==std::string::npos){
+                    currentValue.value = std::stoi(valueText);
+                }
+                else if(valueText.find("f")!=std::string::npos){
+                    currentValue.value = std::stof(valueText);
+                }
+                else{
+                    currentValue.value = std::stod(valueText);
+                }
             } catch (std::exception) {
-                currentValue = valueText;
+                currentValue.value = valueText;
             }
-        } 
-        // find effect if it has no value 
+        }
         else {
-            openStart = output.find(name);
-            //happens when all that's found in the line is the default
+            openStart = working.find(name);
             if (openStart == std::string::npos) {
-                currentEffect.startPos=0;
-                currentEffect.endPos=0;
-                currentEffect.effectName=defaultPrefix.substr(1,defaultPrefix.size()-2);
+                currentEffect.startPos = 0;
+                currentEffect.endPos = 0;
+                currentEffect.effectName = std::string(defaultPrefixView.substr(1, defaultPrefixView.size()-2));
                 currentEffect.value.push_back(currentEffect.defaultValue);
                 currentLine.effects.push_back(currentEffect);
+                output = working;
                 return;
             }
             openEnd = openStart + name.length() - 1;
@@ -102,29 +130,27 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
 
         size_t openTagLen = openEnd - openStart + 1;
         currentEffect.startPos = static_cast<int>(openStart);
+        working.erase(openStart, openTagLen);
 
-        output.erase(openStart, openTagLen);
-
-        size_t closeStart = output.find(endName);
+        size_t closeStart = working.find(endName);
         if (closeStart == std::string::npos) {
-            return;
+            break;
         }
 
         currentEffect.endPos = static_cast<int>(closeStart);
         size_t closeTagLen = endName.length();
-        output.erase(closeStart, closeTagLen);
+        working.erase(closeStart, closeTagLen);
 
         for (size_t effect = 0; effect < currentLine.effects.size(); ++effect) {
             currentLine.effects[effect].value.clear();
             if (currentLine.effects[effect].startPos > static_cast<int>(openStart)) {
-                currentLine.effects[effect].startPos -= openTagLen+openDefLen;
-                currentLine.effects[effect].endPos -= openTagLen+openDefLen;
+                currentLine.effects[effect].startPos -= openTagLen + openDefLen;
+                currentLine.effects[effect].endPos -= openTagLen + openDefLen;
                 currentLine.effects[effect].value.reserve(openTagLen + closeTagLen + openDefLen);
             }
-
         }
 
-        for (size_t n = 0; n < output.size(); ++n) {
+        for (size_t n = 0; n < working.size(); ++n) {
             if (n < static_cast<size_t>(currentEffect.startPos) || n >= static_cast<size_t>(currentEffect.endPos)) {
                 currentEffect.value.push_back(currentEffect.defaultValue);
             } else {
@@ -132,10 +158,10 @@ void Effect::addEffect(Section::line &currentLine, std::string name, std::string
             }
         }
 
-
         currentLine.effects.push_back(currentEffect);
-        continue;
     }
+
+    output = working;
 }
 bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSection){
     std::string output;
@@ -175,11 +201,11 @@ bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSect
         currentLine.english = column;
         std::getline(rowStream, column, ',');
         Effect::ClearAllLineEffects(currentLine);
-        Effect::addEffect(currentLine, "<shakey>", "</shakey>", column, jsonUtils::getJson("game/json/textSettings.json", "/DialogueEffects/defaultShake").get<float>());
-        Effect::addEffect(currentLine, "<fontSize>", "</fontSize>", column, jsonUtils::getJson("game/json/textSettings.json", "/DialogueEffects/defaultFontSize").get<float>());
-        Effect::addEffect(currentLine, "<speed>", "</speed>", column, jsonUtils::getJson("game/json/textSettings.json", "/DialogueEffects/defaultSpeed").get<int>());
-        Effect::addEffect(currentLine, "<color>", "</color>", column, jsonUtils::getJson("game/json/textSettings.json", "/DialogueEffects/defaultColor").get<std::string>());
-        Effect::addEffect(currentLine, "<bold>", "</bold>", column, jsonUtils::getJson("game/json/textSettings.json", "/DialogueEffects/defaultBold").get<int>());
+        Effect::addEffect(currentLine, "<shakey>", "</shakey>", column);
+        Effect::addEffect(currentLine, "<fontSize>", "</fontSize>", column);
+        Effect::addEffect(currentLine, "<speed>", "</speed>", column);
+        Effect::addEffect(currentLine, "<color>", "</color>", column);
+        Effect::addEffect(currentLine, "<bold>", "</bold>", column);
         
         currentLine.translation = column;
         if(jsonUtils::getJson("game/json/debug.json", "/nextSectionDebug") == true){
@@ -199,17 +225,9 @@ bool Section::getNextSection(std::ifstream &iFile, Section::section &currentSect
                 std::cout << currentSection.lines[currentLine].effects[effect].effectName << ", ";
                 std::cout << currentSection.lines[currentLine].effects[effect].startPos << ", ";
                 std::cout << currentSection.lines[currentLine].effects[effect].endPos << ", ";
-                if(std::holds_alternative<int>(currentSection.lines[currentLine].effects[effect].defaultValue)){
-                    std::cout << "int : " << std::get<int>(currentSection.lines[currentLine].effects[effect].defaultValue) << ", ";
-                }
-                if (std::holds_alternative<float>(currentSection.lines[currentLine].effects[effect].defaultValue)) {
-                
-                    std::cout << "float : " << std::get<float>(currentSection.lines[currentLine].effects[effect].defaultValue) << ", ";
-                }
-                if (std::holds_alternative<std::string>(currentSection.lines[currentLine].effects[effect].defaultValue)) {
-                
-                    std::cout << "string : " << std::get<std::string>(currentSection.lines[currentLine].effects[effect].defaultValue);
-                }
+                std::cout << "int : " << currentSection.lines[currentLine].effects[effect].defaultValue.as<int>();
+                std::cout << "float : " << currentSection.lines[currentLine].effects[effect].defaultValue.as<float>();
+                std::cout << "string : " << currentSection.lines[currentLine].effects[effect].defaultValue.as<std::string>();
                     
             }
         }

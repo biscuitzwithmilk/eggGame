@@ -1,18 +1,23 @@
+#include <iostream>
 #include <stdexcept>
+#include <source_location>
+#include <format>
 #include <string>
 #include <variant>
 #include <vector>
 
-using ParamValue = std::variant<
-    int, 
-    float, 
-    bool,
-    std::string, 
-    std::vector<int>, 
-    std::vector<float>,
-    std::vector<std::string>
->;
 namespace basicutils{
+    using ParamValue = std::variant<
+        int, 
+        float, 
+        double, 
+        bool,
+        std::string, 
+        std::vector<int>, 
+        std::vector<float>,
+        std::vector<double>,
+        std::vector<std::string>
+    >;
     struct color{
         int red;
         int green;
@@ -22,11 +27,13 @@ namespace basicutils{
         ParamValue value;
     
         template <typename T>
-        const T& as() const {
-            try {
+        const T& as(const std::source_location location = std::source_location::current()) const {
+            if(std::holds_alternative<T>(value)){
                 return std::get<T>(value);
-            } catch (const std::bad_variant_access&) {
-                throw std::runtime_error("Param type mismatch");
+            }
+            else {
+                std::string msg = std::format("[{}][{}][{}] Param type mismatch", location.file_name(), location.function_name(), location.line());
+                throw std::runtime_error(msg);
             }
         }
     

@@ -10,8 +10,8 @@ namespace rlib{
 namespace Effect{
     struct effect{
         std::string effectName;
-        std::vector<std::variant<int, float, std::string>> value;
-        std::variant<int, float, std::string> defaultValue;
+        std::vector<basicutils::Param> value;
+        basicutils::Param defaultValue;
         int startPos;
         int endPos;
     };
@@ -34,18 +34,5 @@ namespace Section{
 };
 namespace Effect{
     void ClearAllLineEffects(Section::line &currentLine);
-    void addEffect(Section::line &currentLine, std::string name, std::string endName, std::string &output, std::variant<int, float, std::string> defaultValue=0);
-    template<typename T>
-    void onEffect(Section::line &currentLine, int currentEffect, int currentPos,  std::string effectName, T &effectValue, basicutils::Param defaultValue){
-    if (currentLine.effects[currentEffect].effectName==effectName){
-        if(currentPos >= currentLine.effects[currentEffect].startPos){
-            if(std::holds_alternative<T>(currentLine.effects[currentEffect].value)){
-                effectValue = std::get<T>(currentLine.effects[currentEffect].value);
-            }
-        }
-        else if(currentPos >= currentLine.effects[currentEffect].endPos){
-            effectValue = defaultValue.as<T>();
-        }
-    }
-}
+    void addEffect(Section::line &currentLine, const std::string &name, const std::string &endName, std::string &output);
 };
