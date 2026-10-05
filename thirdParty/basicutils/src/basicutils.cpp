@@ -21,7 +21,7 @@ int basicutils::getRGBChannelFromHex(std::string hex, std::string rgbChannel){
     colorstream >> std::hex >> color;
     return color;
 };
-void basicutils::getRGBColorFromHex(basicutils::color currentColor, std::string hex){
+void basicutils::getRGBColorFromHex(basicutils::color &currentColor, std::string hex){
     hex=hex.substr(1);
     currentColor.red = basicutils::getRGBChannelFromHex(hex, "RED");
     currentColor.green = basicutils::getRGBChannelFromHex(hex, "GREEN");

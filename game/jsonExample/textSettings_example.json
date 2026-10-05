@@ -1,0 +1,16 @@
+{
+    "CurrentLanguage": {
+        "key": 0,
+        "path": "game/languages/en/en.csv"
+    },
+    "CurrentLine": 1,
+    "CurrentSection": "//section1",
+    "DialogueEffects": {
+        "bold_default": 1,
+        "color_default": "BLACK",
+        "fontSize_default": 21.0,
+        "shakey_default": 18.0,
+        "speed_default": 2
+    },
+    "TotalLanguages": 3
+}

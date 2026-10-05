@@ -1,0 +1,17 @@
+{
+    "characterList": ["Egg", "MC"],
+    "Egg":{
+        "bold_default": 1,
+        "color_default": "WHITE",
+        "fontSize_default": 21.0,
+        "shakey_default": 19.5,
+        "speed_default": 3
+    },
+    "MC":{
+        "bold_default": 1,
+        "color_default": "WHITE",
+        "fontSize_default": 21.0,
+        "shakey_default": 19.5,
+        "speed_default": 3
+    }
+}
